@@ -59,6 +59,81 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FE2D3BEB2836775E00A3C737 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FE8876A0283139F9002A57B2 /* AppDelegate.swift */,
+				FE8876A2283139F9002A57B2 /* SceneDelegate.swift */,
+				FE2D3BEC2836777800A3C737 /* Flows */,
+				FE2D3BEE283677C300A3C737 /* Assembly */,
+				FE2D3BEF283677D600A3C737 /* Entity */,
+				FE2D3BF0283677EA00A3C737 /* BusinessLogic */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FE2D3BEC2836777800A3C737 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				FE8876AB283139FA002A57B2 /* LaunchScreen.storyboard */,
+				FE8876A6283139F9002A57B2 /* Main.storyboard */,
+				FE8876A4283139F9002A57B2 /* MainViewController.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		FE2D3BEE283677C300A3C737 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		FE2D3BEF283677D600A3C737 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		FE2D3BF0283677EA00A3C737 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		FE2D3BF12836781400A3C737 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FE2D3BF22836783000A3C737 /* Realm */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FE2D3BF22836783000A3C737 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		FE2D3BF32836785300A3C737 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FE8876A9283139FA002A57B2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FE2D3BF42836786C00A3C737 /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				FE8876AE283139FA002A57B2 /* Info.plist */,
+			);
+			path = Environments;
+			sourceTree = "<group>";
+		};
 		FE887694283139F9002A57B2 = {
 			isa = PBXGroup;
 			children = (
@@ -80,13 +155,10 @@
 		FE88769F283139F9002A57B2 /* GB_Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FE8876A0283139F9002A57B2 /* AppDelegate.swift */,
-				FE8876A2283139F9002A57B2 /* SceneDelegate.swift */,
-				FE8876A4283139F9002A57B2 /* MainViewController.swift */,
-				FE8876A6283139F9002A57B2 /* Main.storyboard */,
-				FE8876A9283139FA002A57B2 /* Assets.xcassets */,
-				FE8876AB283139FA002A57B2 /* LaunchScreen.storyboard */,
-				FE8876AE283139FA002A57B2 /* Info.plist */,
+				FE2D3BEB2836775E00A3C737 /* App */,
+				FE2D3BF12836781400A3C737 /* Core */,
+				FE2D3BF32836785300A3C737 /* Resources */,
+				FE2D3BF42836786C00A3C737 /* Environments */,
 			);
 			path = GB_Frameworks;
 			sourceTree = "<group>";
@@ -364,7 +436,7 @@
 				DEVELOPMENT_TEAM = Q3N89R8Y92;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GB_Frameworks/Info.plist;
+				INFOPLIST_FILE = GB_Frameworks/Environments/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "for example";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -395,7 +467,7 @@
 				DEVELOPMENT_TEAM = Q3N89R8Y92;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GB_Frameworks/Info.plist;
+				INFOPLIST_FILE = GB_Frameworks/Environments/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "for example";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

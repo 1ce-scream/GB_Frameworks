@@ -7,6 +7,7 @@ target 'GB_Frameworks' do
 
   # Pods for GB_Frameworks
   pod 'GoogleMaps'
+  pod 'RealmSwift', '~>10'
 end
 
 post_install do |installer|

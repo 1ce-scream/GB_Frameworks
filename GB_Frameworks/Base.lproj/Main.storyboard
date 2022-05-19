@@ -46,12 +46,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="C7t-We-KoF">
-                        <barButtonItem key="rightBarButtonItem" title="My location" style="plain" id="ocv-0r-P5X">
+                        <barButtonItem key="rightBarButtonItem" title="My location" id="ocv-0r-P5X">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="5rp-TQ-FQp">
                                 <rect key="frame" x="295" y="0.0" width="99" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.up.circle" catalog="system" imagePlacement="trailing" title="Me" cornerStyle="capsule">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Me" image="arrow.up.circle" catalog="system">
+                                    <color key="titleColor" systemColor="systemGreenColor"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.up.circle" catalog="system" title="Me">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                     <color key="baseForegroundColor" systemColor="systemGreenColor"/>
                                 </buttonConfiguration>

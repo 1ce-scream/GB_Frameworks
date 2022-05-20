@@ -12,11 +12,13 @@ import GoogleMaps
 class MainViewController: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var stopTrackButton: UIButton!
+    @IBOutlet weak var startTrackButton: UIButton!
     @IBOutlet weak var removeMarkerButton: UIButton!
-    @IBOutlet weak var updateLocationButton: UIButton!
+    @IBOutlet weak var lastTrackButton: UIButton!
     
-    private let coordinate = CLLocationCoordinate2D(latitude: 55.753215,
-                                                    longitude: 37.622504)
+//    private let coordinate = CLLocationCoordinate2D(latitude: 55.753215,
+//                                                    longitude: 37.622504)
     private let zoom: Float = 17.0
     private let strokeWidth: CGFloat = 3
     private var locationManager: CLLocationManager?
@@ -35,8 +37,6 @@ class MainViewController: UIViewController {
     }
 
     private func configureMap() {
-        let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: zoom)
-        mapView.camera = camera
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
     }
@@ -46,18 +46,30 @@ class MainViewController: UIViewController {
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
         locationManager?.allowsBackgroundLocationUpdates = true
+        locationManager?.pausesLocationUpdatesAutomatically = false
+        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager?.startUpdatingLocation()
     }
     
     private func configureButtons() {
         removeMarkerButton.addTarget(self,
                                      action: #selector(removeMarker),
                                      for: .touchUpInside)
-        removeMarkerButton.tintColor = .systemRed
         
-        updateLocationButton.addTarget(self,
-                                       action: #selector(updateLocation),
+        startTrackButton.addTarget(self,
+                                       action: #selector(startTrack),
                                        for: .touchUpInside)
-        updateLocationButton.tintColor = .systemBlue
+        startTrackButton.tintColor = .systemGreen
+        
+        stopTrackButton.addTarget(self,
+                                  action: #selector(startTrack),
+                                  for: .touchUpInside)
+        stopTrackButton.tintColor = .systemRed
+        
+        lastTrackButton.addTarget(self,
+                                  action: #selector(startTrack),
+                                  for: .touchUpInside)
+        
     }
     
     private func addMarker(coordinate: CLLocationCoordinate2D) {
@@ -72,7 +84,7 @@ class MainViewController: UIViewController {
         manualMarker = nil
     }
     
-    @objc func updateLocation() {
+    @objc func startTrack() {
         locationManager?.requestLocation()
          
         route?.map = nil
@@ -82,6 +94,11 @@ class MainViewController: UIViewController {
         route?.map = mapView
         
         locationManager?.startUpdatingLocation()
+    }
+    
+    @objc func stopTrack() {
+        locationManager?.stopUpdatingLocation()
+        
     }
     
     @IBAction func getCurrentLocation(_ sender: UIButton) {
@@ -113,6 +130,7 @@ extension MainViewController: CLLocationManagerDelegate {
         let position = GMSCameraPosition.camera(withTarget: location.coordinate,
                                                 zoom: zoom)
         mapView.animate(to: position)
+        locationManager?.stopUpdatingLocation()
     }
     
     func locationManager(_: CLLocationManager, didFailWithError error: Error) {

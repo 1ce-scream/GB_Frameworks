@@ -20,44 +20,56 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNR-Gc-Xsj">
-                                <rect key="frame" x="305" y="811" width="89" height="31"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="trash.fill" catalog="system" title="Marker" cornerStyle="capsule"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCF-jS-2Jd">
-                                <rect key="frame" x="20" y="811" width="130.5" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Update Location" cornerStyle="capsule"/>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yQh-Ad-iSy">
+                                <rect key="frame" x="10" y="811" width="394" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCF-jS-2Jd">
+                                        <rect key="frame" x="0.0" y="0.0" width="126" height="31"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Start track" cornerStyle="capsule"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNR-Gc-Xsj">
+                                        <rect key="frame" x="134" y="0.0" width="126" height="31"/>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Stop track" cornerStyle="capsule"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ij-oT-2gP">
+                                        <rect key="frame" x="268" y="0.0" width="126" height="31"/>
+                                        <color key="tintColor" systemColor="systemTealColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Last track" cornerStyle="capsule"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dNR-Gc-Xsj" secondAttribute="bottom" constant="20" id="0Jv-y8-kUD"/>
                             <constraint firstItem="1aD-Sc-ont" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9wU-oJ-Cbc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1aD-Sc-ont" secondAttribute="trailing" id="OxW-fR-XNn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yQh-Ad-iSy" secondAttribute="trailing" constant="10" id="Trn-LU-dd7"/>
                             <constraint firstItem="1aD-Sc-ont" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ywm-7b-peG"/>
-                            <constraint firstItem="bCF-jS-2Jd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bk7-67-NlQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dNR-Gc-Xsj" secondAttribute="trailing" constant="20" id="ftS-AY-6Ik"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bCF-jS-2Jd" secondAttribute="bottom" constant="20" id="lme-Qb-wME"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yQh-Ad-iSy" secondAttribute="bottom" constant="20" id="odH-YM-oau"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1aD-Sc-ont" secondAttribute="bottom" id="oju-eD-L8q"/>
+                            <constraint firstItem="yQh-Ad-iSy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="yBH-C0-KmV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="C7t-We-KoF">
                         <barButtonItem key="rightBarButtonItem" title="My location" id="ocv-0r-P5X">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="5rp-TQ-FQp">
-                                <rect key="frame" x="295" y="0.0" width="99" height="44"/>
+                                <rect key="frame" x="285" y="0.0" width="109" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Me" image="arrow.up.circle" catalog="system">
                                     <color key="titleColor" systemColor="systemGreenColor"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.up.circle" catalog="system" title="Me">
+                                <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system" title="Marker">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
-                                    <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="getCurrentLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OMz-0J-7YX"/>
@@ -66,9 +78,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lastTrackButton" destination="1ij-oT-2gP" id="6km-yP-8fo"/>
                         <outlet property="mapView" destination="1aD-Sc-ont" id="Trf-kk-akT"/>
-                        <outlet property="removeMarkerButton" destination="dNR-Gc-Xsj" id="rt8-3J-hMQ"/>
-                        <outlet property="updateLocationButton" destination="bCF-jS-2Jd" id="naF-3B-KGc"/>
+                        <outlet property="removeMarkerButton" destination="5rp-TQ-FQp" id="WLP-ok-zVk"/>
+                        <outlet property="startTrackButton" destination="bCF-jS-2Jd" id="naF-3B-KGc"/>
+                        <outlet property="stopTrackButton" destination="dNR-Gc-Xsj" id="rt8-3J-hMQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -96,7 +110,7 @@
     </scenes>
     <resources>
         <image name="arrow.up.circle" catalog="system" width="128" height="121"/>
-        <image name="trash.fill" catalog="system" width="121" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -105,6 +119,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

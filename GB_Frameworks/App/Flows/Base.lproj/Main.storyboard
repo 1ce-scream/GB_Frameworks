@@ -71,9 +71,6 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                     <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="getCurrentLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OMz-0J-7YX"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>

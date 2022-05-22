@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CC16F3A204B309FF6DBAD4B6 /* Pods_GB_Frameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5485F6DE10F46D643EFE6171 /* Pods_GB_Frameworks.framework */; };
+		FE0A87D3283A3ECA007E4F02 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0A87D2283A3EC9007E4F02 /* AlertHelper.swift */; };
+		FE0A87D6283A3F54007E4F02 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0A87D5283A3F54007E4F02 /* MainViewModel.swift */; };
+		FE0A87D8283A48A7007E4F02 /* TrackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0A87D7283A48A7007E4F02 /* TrackState.swift */; };
 		FE2D3BF628367C1B00A3C737 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D3BF528367C1B00A3C737 /* RealmService.swift */; };
 		FE7BC9662837CC2A002721A1 /* RealmTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7BC9652837CC2A002721A1 /* RealmTrack.swift */; };
 		FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A0283139F9002A57B2 /* AppDelegate.swift */; };
@@ -22,6 +25,9 @@
 		0A18BDA632D3A29753409C3F /* Pods-GB_Frameworks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GB_Frameworks.release.xcconfig"; path = "Target Support Files/Pods-GB_Frameworks/Pods-GB_Frameworks.release.xcconfig"; sourceTree = "<group>"; };
 		5485F6DE10F46D643EFE6171 /* Pods_GB_Frameworks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GB_Frameworks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E260962E777ECDD84B63050A /* Pods-GB_Frameworks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GB_Frameworks.debug.xcconfig"; path = "Target Support Files/Pods-GB_Frameworks/Pods-GB_Frameworks.debug.xcconfig"; sourceTree = "<group>"; };
+		FE0A87D2283A3EC9007E4F02 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		FE0A87D5283A3F54007E4F02 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		FE0A87D7283A48A7007E4F02 /* TrackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackState.swift; sourceTree = "<group>"; };
 		FE2D3BF528367C1B00A3C737 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		FE7BC9652837CC2A002721A1 /* RealmTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTrack.swift; sourceTree = "<group>"; };
 		FE88769D283139F9002A57B2 /* GB_Frameworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GB_Frameworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +69,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FE0A87D4283A3F27007E4F02 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				FE0A87D5283A3F54007E4F02 /* MainViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		FE2D3BEB2836775E00A3C737 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				FE7BC9652837CC2A002721A1 /* RealmTrack.swift */,
+				FE0A87D7283A48A7007E4F02 /* TrackState.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -104,6 +119,7 @@
 		FE2D3BF0283677EA00A3C737 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				FE0A87D4283A3F27007E4F02 /* View Models */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -112,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				FE2D3BF22836783000A3C737 /* Realm */,
+				FE0A87D2283A3EC9007E4F02 /* AlertHelper.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -302,6 +319,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE0A87D6283A3F54007E4F02 /* MainViewModel.swift in Sources */,
+				FE0A87D8283A48A7007E4F02 /* TrackState.swift in Sources */,
+				FE0A87D3283A3ECA007E4F02 /* AlertHelper.swift in Sources */,
 				FE7BC9662837CC2A002721A1 /* RealmTrack.swift in Sources */,
 				FE8876A5283139F9002A57B2 /* MainViewController.swift in Sources */,
 				FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */,

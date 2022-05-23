@@ -77,10 +77,10 @@ class MainViewController: UIViewController {
     }
     
     private func configureRouteView(path: GMSMutablePath?) {
-        if path == nil {
-            routePath = GMSMutablePath()
+        if let extPath = path {
+            routePath = extPath
         } else {
-            routePath = path
+            routePath = GMSMutablePath()
         }
         route = GMSPolyline(path: routePath)
         route?.strokeColor = .systemBlue
@@ -116,24 +116,30 @@ class MainViewController: UIViewController {
     
     @objc func showLastTrack() {
         guard viewModel.trackState == .stop else {
-            alertHelper.showAlert(title: "Ошибка",
-                                  message: "Необходимо остановить трэк")
+            let action = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
+                self?.locationManager?.stopUpdatingLocation()
+                self?.viewModel.stopTrack()
+                self?.mapView.clear()
+            }
+            alertHelper.showAlert(title: "Внимание!",
+                                  message: "Сначала необходимо остановить трэк",
+                                  externalAction: action)
             return
         }
         
         mapView.clear()
+        routePath?.removeAllCoordinates()
         
         viewModel.showLastTrack { items in
             items?.forEach { item in
                 let coordinate = CLLocationCoordinate2D(latitude: item.latitude,
                                                         longitude: item.longitude)
                 self.routePath?.add(coordinate)
-                self.route?.path = self.routePath
             }
             
             guard let path = self.routePath else { return }
-            
-            self.configureRouteView(path: self.routePath)
+
+            self.configureRouteView(path: path)
             
             let bounds = GMSCoordinateBounds(path: path)
             self.mapView.animate(with: GMSCameraUpdate.fit(bounds,

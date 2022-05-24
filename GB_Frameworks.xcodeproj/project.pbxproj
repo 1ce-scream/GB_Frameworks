@@ -19,6 +19,9 @@
 		FE8876A8283139F9002A57B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8876A6283139F9002A57B2 /* Main.storyboard */; };
 		FE8876AA283139FA002A57B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE8876A9283139FA002A57B2 /* Assets.xcassets */; };
 		FE8876AD283139FA002A57B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8876AB283139FA002A57B2 /* LaunchScreen.storyboard */; };
+		FEC9DE93283BB44C003FB380 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9DE92283BB44C003FB380 /* RealmUser.swift */; };
+		FEC9DE95283BB74F003FB380 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9DE94283BB74F003FB380 /* LoginViewController.swift */; };
+		FEC9DE97283BC00C003FB380 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9DE96283BC00C003FB380 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		FE8876A9283139FA002A57B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE8876AC283139FA002A57B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE8876AE283139FA002A57B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEC9DE92283BB44C003FB380 /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
+		FEC9DE94283BB74F003FB380 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FEC9DE96283BC00C003FB380 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				FE0A87D5283A3F54007E4F02 /* MainViewModel.swift */,
+				FEC9DE96283BC00C003FB380 /* LoginViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -96,6 +103,7 @@
 				FE8876AB283139FA002A57B2 /* LaunchScreen.storyboard */,
 				FE8876A6283139F9002A57B2 /* Main.storyboard */,
 				FE8876A4283139F9002A57B2 /* MainViewController.swift */,
+				FEC9DE94283BB74F003FB380 /* LoginViewController.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -110,7 +118,7 @@
 		FE2D3BEF283677D600A3C737 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				FE7BC9652837CC2A002721A1 /* RealmTrack.swift */,
+				FEC9DE91283BB435003FB380 /* Models */,
 				FE0A87D7283A48A7007E4F02 /* TrackState.swift */,
 			);
 			path = Entity;
@@ -119,6 +127,7 @@
 		FE2D3BF0283677EA00A3C737 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				FE2D3BF22836783000A3C737 /* Realm */,
 				FE0A87D4283A3F27007E4F02 /* View Models */,
 			);
 			path = BusinessLogic;
@@ -127,7 +136,6 @@
 		FE2D3BF12836781400A3C737 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				FE2D3BF22836783000A3C737 /* Realm */,
 				FE0A87D2283A3EC9007E4F02 /* AlertHelper.swift */,
 			);
 			path = Core;
@@ -184,6 +192,15 @@
 				FE2D3BF42836786C00A3C737 /* Environments */,
 			);
 			path = GB_Frameworks;
+			sourceTree = "<group>";
+		};
+		FEC9DE91283BB435003FB380 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FE7BC9652837CC2A002721A1 /* RealmTrack.swift */,
+				FEC9DE92283BB44C003FB380 /* RealmUser.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,11 +338,14 @@
 			files = (
 				FE0A87D6283A3F54007E4F02 /* MainViewModel.swift in Sources */,
 				FE0A87D8283A48A7007E4F02 /* TrackState.swift in Sources */,
+				FEC9DE97283BC00C003FB380 /* LoginViewModel.swift in Sources */,
 				FE0A87D3283A3ECA007E4F02 /* AlertHelper.swift in Sources */,
 				FE7BC9662837CC2A002721A1 /* RealmTrack.swift in Sources */,
 				FE8876A5283139F9002A57B2 /* MainViewController.swift in Sources */,
+				FEC9DE93283BB44C003FB380 /* RealmUser.swift in Sources */,
 				FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */,
 				FE8876A3283139F9002A57B2 /* SceneDelegate.swift in Sources */,
+				FEC9DE95283BB74F003FB380 /* LoginViewController.swift in Sources */,
 				FE2D3BF628367C1B00A3C737 /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

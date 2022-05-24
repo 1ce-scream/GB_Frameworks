@@ -12,6 +12,7 @@
 		FE0A87D6283A3F54007E4F02 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0A87D5283A3F54007E4F02 /* MainViewModel.swift */; };
 		FE0A87D8283A48A7007E4F02 /* TrackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0A87D7283A48A7007E4F02 /* TrackState.swift */; };
 		FE2D3BF628367C1B00A3C737 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D3BF528367C1B00A3C737 /* RealmService.swift */; };
+		FE4A36CF283D07E200602982 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4A36CE283D07E200602982 /* KeyboardHelper.swift */; };
 		FE7BC9662837CC2A002721A1 /* RealmTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7BC9652837CC2A002721A1 /* RealmTrack.swift */; };
 		FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A0283139F9002A57B2 /* AppDelegate.swift */; };
 		FE8876A3283139F9002A57B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A2283139F9002A57B2 /* SceneDelegate.swift */; };
@@ -32,6 +33,7 @@
 		FE0A87D5283A3F54007E4F02 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		FE0A87D7283A48A7007E4F02 /* TrackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackState.swift; sourceTree = "<group>"; };
 		FE2D3BF528367C1B00A3C737 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		FE4A36CE283D07E200602982 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		FE7BC9652837CC2A002721A1 /* RealmTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTrack.swift; sourceTree = "<group>"; };
 		FE88769D283139F9002A57B2 /* GB_Frameworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GB_Frameworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8876A0283139F9002A57B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				FE0A87D2283A3EC9007E4F02 /* AlertHelper.swift */,
+				FE4A36CE283D07E200602982 /* KeyboardHelper.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE4A36CF283D07E200602982 /* KeyboardHelper.swift in Sources */,
 				FE0A87D6283A3F54007E4F02 /* MainViewModel.swift in Sources */,
 				FE0A87D8283A48A7007E4F02 /* TrackState.swift in Sources */,
 				FEC9DE97283BC00C003FB380 /* LoginViewModel.swift in Sources */,

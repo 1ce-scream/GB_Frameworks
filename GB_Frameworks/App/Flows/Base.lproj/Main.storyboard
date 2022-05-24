@@ -169,6 +169,7 @@
                         <outlet property="loginButton" destination="GRG-tT-Uch" id="iG5-zY-a0u"/>
                         <outlet property="passwordTextField" destination="X2n-M7-PO6" id="ytK-CK-NHg"/>
                         <outlet property="registrationButton" destination="VCp-iz-8JX" id="iaI-sN-Gja"/>
+                        <outlet property="scrollView" destination="BNQ-EC-aTG" id="RcV-h4-xAr"/>
                         <segue destination="5LW-bC-KY4" kind="show" identifier="loginToMap" id="PHw-2h-iF6"/>
                     </connections>
                 </viewController>

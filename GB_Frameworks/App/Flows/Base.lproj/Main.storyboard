@@ -95,56 +95,51 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNQ-EC-aTG">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2oZ-30-EyW">
-                                        <rect key="frame" x="82" y="201" width="250" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="yB1-4i-415"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="username"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X2n-M7-PO6">
-                                        <rect key="frame" x="82" y="255" width="250" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="1Ph-Cz-y7J"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GB Frameworks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAa-TE-1ib">
-                                        <rect key="frame" x="20" y="100" width="374" height="41"/>
+                                        <rect key="frame" x="28" y="100" width="358" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fvo-hy-Dil">
-                                        <rect key="frame" x="91.5" y="309" width="231" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="h4J-kh-uj5" userLabel="BigStack">
+                                        <rect key="frame" x="91.5" y="221" width="231" height="139"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRG-tT-Uch">
-                                                <rect key="frame" x="0.0" y="0.0" width="110.5" height="31"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Войти"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCp-iz-8JX">
-                                                <rect key="frame" x="120.5" y="0.0" width="110.5" height="31"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Регистрация"/>
-                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2oZ-30-EyW">
+                                                <rect key="frame" x="0.0" y="0.0" width="231" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" textContentType="username"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X2n-M7-PO6">
+                                                <rect key="frame" x="0.0" y="54" width="231" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fvo-hy-Dil">
+                                                <rect key="frame" x="0.0" y="108" width="231" height="31"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRG-tT-Uch">
+                                                        <rect key="frame" x="0.0" y="0.0" width="110.5" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Войти"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCp-iz-8JX">
+                                                        <rect key="frame" x="120.5" y="0.0" width="110.5" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Регистрация"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="sAa-TE-1ib" firstAttribute="centerX" secondItem="BNQ-EC-aTG" secondAttribute="centerX" id="6tD-Wu-dLv"/>
-                                    <constraint firstItem="2oZ-30-EyW" firstAttribute="centerX" secondItem="BNQ-EC-aTG" secondAttribute="centerX" id="B6w-AU-WmK"/>
-                                    <constraint firstItem="Fvo-hy-Dil" firstAttribute="centerX" secondItem="BNQ-EC-aTG" secondAttribute="centerX" id="Lxq-VT-DOF"/>
-                                    <constraint firstItem="Fvo-hy-Dil" firstAttribute="top" secondItem="X2n-M7-PO6" secondAttribute="bottom" constant="20" id="QVE-68-zFk"/>
-                                    <constraint firstItem="X2n-M7-PO6" firstAttribute="top" secondItem="2oZ-30-EyW" secondAttribute="bottom" constant="20" id="WSs-B3-cAB"/>
-                                    <constraint firstItem="X2n-M7-PO6" firstAttribute="centerX" secondItem="BNQ-EC-aTG" secondAttribute="centerX" id="amg-bx-jSI"/>
-                                    <constraint firstAttribute="trailing" secondItem="sAa-TE-1ib" secondAttribute="trailing" constant="20" id="fQJ-H3-ahj"/>
-                                    <constraint firstAttribute="bottom" secondItem="Fvo-hy-Dil" secondAttribute="bottom" constant="20" id="rz0-As-FBQ"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="sAa-TE-1ib" secondAttribute="trailing" constant="20" id="I3Q-SQ-EBJ"/>
+                                    <constraint firstItem="h4J-kh-uj5" firstAttribute="centerX" secondItem="BNQ-EC-aTG" secondAttribute="centerX" id="JfH-TY-H4R"/>
+                                    <constraint firstAttribute="bottom" secondItem="h4J-kh-uj5" secondAttribute="bottom" constant="20" id="fnj-oJ-EMB"/>
+                                    <constraint firstItem="sAa-TE-1ib" firstAttribute="left" secondItem="BNQ-EC-aTG" secondAttribute="left" constant="28" id="gwd-yQ-oN4"/>
+                                    <constraint firstItem="h4J-kh-uj5" firstAttribute="top" secondItem="sAa-TE-1ib" secondAttribute="bottom" constant="80" id="huJ-f0-O4d"/>
                                     <constraint firstItem="sAa-TE-1ib" firstAttribute="top" secondItem="BNQ-EC-aTG" secondAttribute="top" constant="100" id="t2u-db-6Rs"/>
-                                    <constraint firstItem="sAa-TE-1ib" firstAttribute="leading" secondItem="BNQ-EC-aTG" secondAttribute="leading" constant="20" id="yBP-os-9OP"/>
-                                    <constraint firstItem="2oZ-30-EyW" firstAttribute="top" secondItem="sAa-TE-1ib" secondAttribute="bottom" constant="60" id="zUj-0C-EX3"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="L59-fy-6r5"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="uJT-0C-Ghy"/>

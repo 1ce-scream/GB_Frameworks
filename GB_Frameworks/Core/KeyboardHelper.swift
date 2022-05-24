@@ -7,8 +7,12 @@
 
 import UIKit
 
-class KeyboardHelper {
-    var scrollView: UIScrollView? = UIScrollView()
+final class KeyboardHelper {
+    private var scrollView: UIScrollView?
+    
+    init(scrollView: UIScrollView) {
+        self.scrollView = scrollView
+    }
     
     func addKeyboardObserver() {
         NotificationCenter.default.addObserver(

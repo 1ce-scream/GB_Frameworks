@@ -17,12 +17,12 @@ class LoginViewController: UIViewController {
     
     private lazy var alert = AlertsHelper(viewController: self)
     private lazy var viewModel = LoginViewModel()
-    private lazy var keyboardHelper = KeyboardHelper()
+    private lazy var keyboardHelper = KeyboardHelper(scrollView: scrollView)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        keyboardHelper.scrollView = scrollView
+//        keyboardHelper.scrollView = scrollView
         keyboardHelper.hideKeyboardGesture()
         configureButtons()
     }

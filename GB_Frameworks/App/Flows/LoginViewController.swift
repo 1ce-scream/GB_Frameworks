@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
         loginButton.addTarget(self,
                               action: #selector(tapLoginButton),
                               for: .touchUpInside)
+        registrationButton.tintColor = .systemTeal
         registrationButton.addTarget(self,
                                      action: #selector(tapRegButton),
                                      for: .touchUpInside)

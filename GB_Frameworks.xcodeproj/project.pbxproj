@@ -10,7 +10,7 @@
 		CC16F3A204B309FF6DBAD4B6 /* Pods_GB_Frameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5485F6DE10F46D643EFE6171 /* Pods_GB_Frameworks.framework */; };
 		FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A0283139F9002A57B2 /* AppDelegate.swift */; };
 		FE8876A3283139F9002A57B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A2283139F9002A57B2 /* SceneDelegate.swift */; };
-		FE8876A5283139F9002A57B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A4283139F9002A57B2 /* ViewController.swift */; };
+		FE8876A5283139F9002A57B2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A4283139F9002A57B2 /* MainViewController.swift */; };
 		FE8876A8283139F9002A57B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8876A6283139F9002A57B2 /* Main.storyboard */; };
 		FE8876AA283139FA002A57B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE8876A9283139FA002A57B2 /* Assets.xcassets */; };
 		FE8876AD283139FA002A57B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8876AB283139FA002A57B2 /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 		FE88769D283139F9002A57B2 /* GB_Frameworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GB_Frameworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8876A0283139F9002A57B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8876A2283139F9002A57B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FE8876A4283139F9002A57B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FE8876A4283139F9002A57B2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FE8876A7283139F9002A57B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE8876A9283139FA002A57B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE8876AC283139FA002A57B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +48,6 @@
 				E260962E777ECDD84B63050A /* Pods-GB_Frameworks.debug.xcconfig */,
 				0A18BDA632D3A29753409C3F /* Pods-GB_Frameworks.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,7 +82,7 @@
 			children = (
 				FE8876A0283139F9002A57B2 /* AppDelegate.swift */,
 				FE8876A2283139F9002A57B2 /* SceneDelegate.swift */,
-				FE8876A4283139F9002A57B2 /* ViewController.swift */,
+				FE8876A4283139F9002A57B2 /* MainViewController.swift */,
 				FE8876A6283139F9002A57B2 /* Main.storyboard */,
 				FE8876A9283139FA002A57B2 /* Assets.xcassets */,
 				FE8876AB283139FA002A57B2 /* LaunchScreen.storyboard */,
@@ -207,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE8876A5283139F9002A57B2 /* ViewController.swift in Sources */,
+				FE8876A5283139F9002A57B2 /* MainViewController.swift in Sources */,
 				FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */,
 				FE8876A3283139F9002A57B2 /* SceneDelegate.swift in Sources */,
 			);
@@ -272,6 +271,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -333,6 +333,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -344,6 +345,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -360,8 +362,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q3N89R8Y92;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GB_Frameworks/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "for example";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -389,8 +393,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q3N89R8Y92;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GB_Frameworks/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "for example";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -9,17 +9,22 @@
 /* Begin PBXBuildFile section */
 		CC16F3A204B309FF6DBAD4B6 /* Pods_GB_Frameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5485F6DE10F46D643EFE6171 /* Pods_GB_Frameworks.framework */; };
 		FE0A87D3283A3ECA007E4F02 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0A87D2283A3EC9007E4F02 /* AlertHelper.swift */; };
-		FE0A87D6283A3F54007E4F02 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0A87D5283A3F54007E4F02 /* MainViewModel.swift */; };
+		FE0A87D6283A3F54007E4F02 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0A87D5283A3F54007E4F02 /* MapViewModel.swift */; };
 		FE0A87D8283A48A7007E4F02 /* TrackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0A87D7283A48A7007E4F02 /* TrackState.swift */; };
 		FE2D3BF628367C1B00A3C737 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D3BF528367C1B00A3C737 /* RealmService.swift */; };
 		FE4A36CF283D07E200602982 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4A36CE283D07E200602982 /* KeyboardHelper.swift */; };
 		FE7BC9662837CC2A002721A1 /* RealmTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7BC9652837CC2A002721A1 /* RealmTrack.swift */; };
 		FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A0283139F9002A57B2 /* AppDelegate.swift */; };
 		FE8876A3283139F9002A57B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A2283139F9002A57B2 /* SceneDelegate.swift */; };
-		FE8876A5283139F9002A57B2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A4283139F9002A57B2 /* MainViewController.swift */; };
+		FE8876A5283139F9002A57B2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A4283139F9002A57B2 /* MapViewController.swift */; };
 		FE8876A8283139F9002A57B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8876A6283139F9002A57B2 /* Main.storyboard */; };
 		FE8876AA283139FA002A57B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE8876A9283139FA002A57B2 /* Assets.xcassets */; };
 		FE8876AD283139FA002A57B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8876AB283139FA002A57B2 /* LaunchScreen.storyboard */; };
+		FE9816D3283E362F007292D1 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816D2283E362F007292D1 /* RegistrationViewController.swift */; };
+		FE9816D6283E3769007292D1 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816D5283E3769007292D1 /* BaseCoordinator.swift */; };
+		FE9816D8283E3B10007292D1 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816D7283E3B10007292D1 /* ApplicationCoordinator.swift */; };
+		FE9816DA283E3DE1007292D1 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816D9283E3DE1007292D1 /* AuthCoordinator.swift */; };
+		FE9816DC283E3FB8007292D1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816DB283E3FB8007292D1 /* MainCoordinator.swift */; };
 		FEC9DE93283BB44C003FB380 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9DE92283BB44C003FB380 /* RealmUser.swift */; };
 		FEC9DE95283BB74F003FB380 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9DE94283BB74F003FB380 /* LoginViewController.swift */; };
 		FEC9DE97283BC00C003FB380 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9DE96283BC00C003FB380 /* LoginViewModel.swift */; };
@@ -30,7 +35,7 @@
 		5485F6DE10F46D643EFE6171 /* Pods_GB_Frameworks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GB_Frameworks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E260962E777ECDD84B63050A /* Pods-GB_Frameworks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GB_Frameworks.debug.xcconfig"; path = "Target Support Files/Pods-GB_Frameworks/Pods-GB_Frameworks.debug.xcconfig"; sourceTree = "<group>"; };
 		FE0A87D2283A3EC9007E4F02 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
-		FE0A87D5283A3F54007E4F02 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		FE0A87D5283A3F54007E4F02 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		FE0A87D7283A48A7007E4F02 /* TrackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackState.swift; sourceTree = "<group>"; };
 		FE2D3BF528367C1B00A3C737 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		FE4A36CE283D07E200602982 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
@@ -38,11 +43,16 @@
 		FE88769D283139F9002A57B2 /* GB_Frameworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GB_Frameworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8876A0283139F9002A57B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8876A2283139F9002A57B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FE8876A4283139F9002A57B2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FE8876A4283139F9002A57B2 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FE8876A7283139F9002A57B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE8876A9283139FA002A57B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE8876AC283139FA002A57B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE8876AE283139FA002A57B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE9816D2283E362F007292D1 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		FE9816D5283E3769007292D1 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		FE9816D7283E3B10007292D1 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		FE9816D9283E3DE1007292D1 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		FE9816DB283E3FB8007292D1 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		FEC9DE92283BB44C003FB380 /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		FEC9DE94283BB74F003FB380 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FEC9DE96283BC00C003FB380 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -80,7 +90,7 @@
 		FE0A87D4283A3F27007E4F02 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				FE0A87D5283A3F54007E4F02 /* MainViewModel.swift */,
+				FE0A87D5283A3F54007E4F02 /* MapViewModel.swift */,
 				FEC9DE96283BC00C003FB380 /* LoginViewModel.swift */,
 			);
 			path = "View Models";
@@ -102,10 +112,12 @@
 		FE2D3BEC2836777800A3C737 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				FE9816D4283E3743007292D1 /* Coordinators */,
 				FE8876AB283139FA002A57B2 /* LaunchScreen.storyboard */,
 				FE8876A6283139F9002A57B2 /* Main.storyboard */,
-				FE8876A4283139F9002A57B2 /* MainViewController.swift */,
+				FE8876A4283139F9002A57B2 /* MapViewController.swift */,
 				FEC9DE94283BB74F003FB380 /* LoginViewController.swift */,
+				FE9816D2283E362F007292D1 /* RegistrationViewController.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -195,6 +207,17 @@
 				FE2D3BF42836786C00A3C737 /* Environments */,
 			);
 			path = GB_Frameworks;
+			sourceTree = "<group>";
+		};
+		FE9816D4283E3743007292D1 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				FE9816D5283E3769007292D1 /* BaseCoordinator.swift */,
+				FE9816D7283E3B10007292D1 /* ApplicationCoordinator.swift */,
+				FE9816D9283E3DE1007292D1 /* AuthCoordinator.swift */,
+				FE9816DB283E3FB8007292D1 /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		FEC9DE91283BB435003FB380 /* Models */ = {
@@ -339,16 +362,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE9816DC283E3FB8007292D1 /* MainCoordinator.swift in Sources */,
 				FE4A36CF283D07E200602982 /* KeyboardHelper.swift in Sources */,
-				FE0A87D6283A3F54007E4F02 /* MainViewModel.swift in Sources */,
+				FE0A87D6283A3F54007E4F02 /* MapViewModel.swift in Sources */,
 				FE0A87D8283A48A7007E4F02 /* TrackState.swift in Sources */,
 				FEC9DE97283BC00C003FB380 /* LoginViewModel.swift in Sources */,
+				FE9816D3283E362F007292D1 /* RegistrationViewController.swift in Sources */,
+				FE9816D8283E3B10007292D1 /* ApplicationCoordinator.swift in Sources */,
+				FE9816DA283E3DE1007292D1 /* AuthCoordinator.swift in Sources */,
 				FE0A87D3283A3ECA007E4F02 /* AlertHelper.swift in Sources */,
 				FE7BC9662837CC2A002721A1 /* RealmTrack.swift in Sources */,
-				FE8876A5283139F9002A57B2 /* MainViewController.swift in Sources */,
+				FE8876A5283139F9002A57B2 /* MapViewController.swift in Sources */,
 				FEC9DE93283BB44C003FB380 /* RealmUser.swift in Sources */,
 				FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */,
 				FE8876A3283139F9002A57B2 /* SceneDelegate.swift in Sources */,
+				FE9816D6283E3769007292D1 /* BaseCoordinator.swift in Sources */,
 				FEC9DE95283BB74F003FB380 /* LoginViewController.swift in Sources */,
 				FE2D3BF628367C1B00A3C737 /* RealmService.swift in Sources */,
 			);

@@ -1,18 +1,17 @@
 //
-//  LoginViewController.swift
+//  RegistrationViewController.swift
 //  GB_Frameworks
 //
-//  Created by Vitaliy Talalay on 23.05.2022.
+//  Created by Vitaliy Talalay on 25.05.2022.
 //
 
 import UIKit
 
-final class LoginViewController: UIViewController {
+final class RegistrationViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registrationButton: UIButton!
     
     private lazy var alert = AlertsHelper(viewController: self)
@@ -20,13 +19,12 @@ final class LoginViewController: UIViewController {
     
     var viewModel: LoginViewModel?
     var onLogin: (() -> Void)?
-    var onRegister: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        keyboardHelper.hideKeyboardGesture()
+
         configureButtons()
+        keyboardHelper.hideKeyboardGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,12 +40,6 @@ final class LoginViewController: UIViewController {
     }
     
     private func configureButtons() {
-        loginButton.tintColor = .systemGreen
-        loginButton.addTarget(self,
-                              action: #selector(tapLoginButton),
-                              for: .touchUpInside)
-        
-        registrationButton.tintColor = .systemTeal
         registrationButton.addTarget(self,
                                      action: #selector(tapRegButton),
                                      for: .touchUpInside)
@@ -66,22 +58,24 @@ final class LoginViewController: UIViewController {
         return true
     }
     
-    @objc func tapLoginButton() {
-        
+    @objc func tapRegButton() {
         guard checkTextFields() else { return }
         
-        let checkResult = viewModel!.checkUserData(login: loginTextField.text ?? "",
-                                                  password: passwordTextField.text ?? "")
-        
-        if checkResult {
-            UserDefaults.standard.set(true, forKey: "isLogin")
-            onLogin?()
-        } else {
-            alert.showAlert(title: "Ошибка", message: "Пароль или логин не верны!")
+        let action = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
+            self?.onLogin?()
         }
-    }
-    
-    @objc func tapRegButton() {
-        onRegister?()
+        
+        guard let isUserExist = viewModel?.registerUser(login: loginTextField.text ?? "",
+                                                        password: passwordTextField.text ?? "")
+        else {
+            print("smth went wrong with view model")
+            return
+        }
+
+        if isUserExist {
+            alert.showAlert(title: "Отлично", message: "Пароль был изменен!", externalAction: action)
+        } else {
+            alert.showAlert(title: "Отлично", message: "Успешная регистрация", externalAction: action)
+        }
     }
 }

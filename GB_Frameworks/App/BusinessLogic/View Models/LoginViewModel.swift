@@ -13,8 +13,12 @@ final class LoginViewModel {
     func checkUserData(login: String, password: String) -> Bool {
         let realmUser = try? RealmService.loadByKey(typeOf: RealmUser.self,
                                                     primaryKey: login)
-        guard realmUser != nil else { return false }
-        guard password == realmUser?.password else { return false }
+        guard
+            let user = realmUser,
+            password == user.password
+        else {
+            return false
+        }
         return true
     }
     

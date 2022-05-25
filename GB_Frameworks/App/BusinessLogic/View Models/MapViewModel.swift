@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 import RealmSwift
 
-final class MainViewModel {
+final class MapViewModel {
     private var coordinates: [RealmTrack] = []
     var trackState: TrackState = .stop
     

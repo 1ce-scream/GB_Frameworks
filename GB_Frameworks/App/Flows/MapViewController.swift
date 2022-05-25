@@ -9,24 +9,27 @@ import UIKit
 import CoreLocation
 import GoogleMaps
 
-class MainViewController: UIViewController {
+final class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var stopTrackButton: UIButton!
     @IBOutlet weak var startTrackButton: UIButton!
     @IBOutlet weak var removeMarkerButton: UIButton!
     @IBOutlet weak var lastTrackButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
     
     private let zoom: Float = 17.0
     private let strokeWidth: CGFloat = 5
     private let myLocationButtonInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
     private let mapPadding: CGFloat = 30.0
-    private lazy var viewModel = MainViewModel()
     private lazy var alertHelper = AlertsHelper(viewController: self)
     private var locationManager: CLLocationManager?
     private var manualMarker: GMSMarker?
     private var route: GMSPolyline?
     private var routePath: GMSMutablePath?
+    
+    var viewModel: MapViewModel?
+    var onLogin: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +77,10 @@ class MainViewController: UIViewController {
                                   for: .touchUpInside)
         lastTrackButton.tintColor = .systemTeal
         
+        logOutButton.addTarget(self,
+                               action: #selector(tapLogoutButton),
+                               for: .touchUpInside)
+        
     }
     
     private func configureRouteView(path: GMSMutablePath?) {
@@ -105,20 +112,27 @@ class MainViewController: UIViewController {
         configureRouteView(path: nil)
         locationManager?.requestLocation()
         locationManager?.startUpdatingLocation()
-        viewModel.startTrack()
+        viewModel?.startTrack()
     }
     
     @objc func stopTrack() {
         locationManager?.stopUpdatingLocation()
-        viewModel.stopTrack()
+        viewModel?.stopTrack()
         mapView.clear()
     }
     
+    @objc func tapLogoutButton() {
+        UserDefaults.standard.set(false, forKey: "isLogin")
+        onLogin?()
+    }
+    
     @objc func showLastTrack() {
-        guard viewModel.trackState == .stop else {
+        guard
+            viewModel?.trackState == .stop
+        else {
             let action = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
                 self?.locationManager?.stopUpdatingLocation()
-                self?.viewModel.stopTrack()
+                self?.viewModel?.stopTrack()
                 self?.mapView.clear()
             }
             alertHelper.showAlert(title: "Внимание!",
@@ -130,7 +144,7 @@ class MainViewController: UIViewController {
         mapView.clear()
         routePath?.removeAllCoordinates()
         
-        viewModel.showLastTrack { items in
+        viewModel?.showLastTrack { items in
             items?.forEach { item in
                 let coordinate = CLLocationCoordinate2D(latitude: item.latitude,
                                                         longitude: item.longitude)
@@ -148,7 +162,7 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: GMSMapViewDelegate {
+extension MapViewController: GMSMapViewDelegate {
     func mapView(_: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         print(coordinate)
         
@@ -160,7 +174,7 @@ extension MainViewController: GMSMapViewDelegate {
     }
 }
 
-extension MainViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         
@@ -171,8 +185,8 @@ extension MainViewController: CLLocationManagerDelegate {
                                                 zoom: zoom)
         mapView.animate(to: position)
         
-        viewModel.saveCoordinates(coordinates: location.coordinate)
-        guard viewModel.trackState != .run else { return }
+        viewModel?.saveCoordinates(coordinates: location.coordinate)
+        guard viewModel?.trackState != .run else { return }
         locationManager?.stopUpdatingLocation()
     }
     

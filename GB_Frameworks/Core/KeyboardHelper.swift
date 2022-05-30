@@ -10,7 +10,7 @@ import UIKit
 final class KeyboardHelper {
     private var scrollView: UIScrollView?
     
-    init(scrollView: UIScrollView) {
+    init(scrollView: UIScrollView?) {
         self.scrollView = scrollView
     }
     

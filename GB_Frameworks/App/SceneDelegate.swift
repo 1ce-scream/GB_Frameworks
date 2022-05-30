@@ -11,6 +11,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var coordinator: ApplicationCoordinator?
+    
+    let blurEffect = UIBlurEffect(style: .light)
+    let blurViewTag: Int = 100
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -34,11 +37,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        
+        removeBlurEffect()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
+        
+        addBlurEffect()
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
@@ -52,6 +59,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    private func addBlurEffect() {
+        guard let window = window else { return }
+        
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        blurView.frame = window.bounds
+        blurView.tag = blurViewTag
+        
+//        window.rootViewController?.view.insertSubview(blurView, at: 1)
+        window.rootViewController?.view.addSubview(blurView)
+    }
+    
+    private func removeBlurEffect() {
+        guard
+            let blurView = window?.rootViewController?.view.viewWithTag(blurViewTag)
+        else { return }
+        
+        blurView.removeFromSuperview()
+    }
 }
 

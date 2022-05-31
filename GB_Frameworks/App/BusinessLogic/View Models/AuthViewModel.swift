@@ -8,14 +8,16 @@
 import Foundation
 import RealmSwift
 
-final class LoginViewModel {
+final class AuthViewModel {
     
     func checkUserData(login: String, password: String) -> Bool {
         let realmUser = try? RealmService.loadByKey(typeOf: RealmUser.self,
                                                     primaryKey: login)
+        let passwordHash = password.SHA256Hash()
+                
         guard
             let user = realmUser,
-            password == user.password
+            passwordHash == user.password
         else {
             return false
         }
@@ -29,14 +31,15 @@ final class LoginViewModel {
     func registerUser(login: String, password: String) -> Bool {
         let realmUser = try? RealmService.loadByKey(typeOf: RealmUser.self,
                                                     primaryKey: login)
+        let passwordHash = password.SHA256Hash()
         
         if let user = realmUser {
-            try? RealmService.updatePassword(user: user, password: password)
+            try? RealmService.updatePassword(user: user, password: passwordHash)
             return true
         } else {
             let newUser = RealmUser()
             newUser.login = login
-            newUser.password = password
+            newUser.password = passwordHash
             try? RealmService.save(items: [newUser])
             return false
         }

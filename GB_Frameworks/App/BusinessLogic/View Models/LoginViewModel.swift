@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-final class AuthViewModel {
+final class LoginViewModel {
     
     func checkUserData(login: String, password: String) -> Bool {
         let realmUser = try? RealmService.loadByKey(typeOf: RealmUser.self,

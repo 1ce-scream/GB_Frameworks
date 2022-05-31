@@ -28,7 +28,7 @@
 		FE9816DC283E3FB8007292D1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816DB283E3FB8007292D1 /* MainCoordinator.swift */; };
 		FEC9DE93283BB44C003FB380 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9DE92283BB44C003FB380 /* RealmUser.swift */; };
 		FEC9DE95283BB74F003FB380 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9DE94283BB74F003FB380 /* LoginViewController.swift */; };
-		FEC9DE97283BC00C003FB380 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9DE96283BC00C003FB380 /* AuthViewModel.swift */; };
+		FEC9DE97283BC00C003FB380 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9DE96283BC00C003FB380 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +57,7 @@
 		FE9816DB283E3FB8007292D1 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		FEC9DE92283BB44C003FB380 /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		FEC9DE94283BB74F003FB380 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		FEC9DE96283BC00C003FB380 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		FEC9DE96283BC00C003FB380 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				FE0A87D5283A3F54007E4F02 /* MapViewModel.swift */,
-				FEC9DE96283BC00C003FB380 /* AuthViewModel.swift */,
+				FEC9DE96283BC00C003FB380 /* LoginViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -144,7 +144,7 @@
 		FE2D3BF0283677EA00A3C737 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
-				FE2D3BF22836783000A3C737 /* Services */,
+				FE2D3BF22836783000A3C737 /* Realm */,
 				FE0A87D4283A3F27007E4F02 /* View Models */,
 			);
 			path = BusinessLogic;
@@ -159,12 +159,12 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		FE2D3BF22836783000A3C737 /* Services */ = {
+		FE2D3BF22836783000A3C737 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
 				FE2D3BF528367C1B00A3C737 /* RealmService.swift */,
 			);
-			path = Services;
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		FE2D3BF32836785300A3C737 /* Resources */ = {
@@ -369,7 +369,7 @@
 				FE4A36CF283D07E200602982 /* KeyboardHelper.swift in Sources */,
 				FE0A87D6283A3F54007E4F02 /* MapViewModel.swift in Sources */,
 				FE0A87D8283A48A7007E4F02 /* TrackState.swift in Sources */,
-				FEC9DE97283BC00C003FB380 /* AuthViewModel.swift in Sources */,
+				FEC9DE97283BC00C003FB380 /* LoginViewModel.swift in Sources */,
 				FE9816D3283E362F007292D1 /* RegistrationViewController.swift in Sources */,
 				FE9816D8283E3B10007292D1 /* ApplicationCoordinator.swift in Sources */,
 				FE9816DA283E3DE1007292D1 /* AuthCoordinator.swift in Sources */,

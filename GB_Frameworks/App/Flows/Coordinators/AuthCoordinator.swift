@@ -12,10 +12,10 @@ final class AuthCoordinator: BaseCoordinator {
     var onFinishFlow: (() -> Void)?
     
     override func start() {
-        showLoginModule(viewModel: AuthViewModel())
+        showLoginModule(viewModel: LoginViewModel())
     }
     
-    private func showLoginModule(viewModel: AuthViewModel) {
+    private func showLoginModule(viewModel: LoginViewModel) {
         guard
             let controller = storyboard
                 .instantiateViewController(withIdentifier: "LoginVC")
@@ -23,7 +23,7 @@ final class AuthCoordinator: BaseCoordinator {
         else { return }
         
         controller.onRegister = { [weak self] in
-            self?.showRegisterModule(viewModel: AuthViewModel())
+            self?.showRegisterModule(viewModel: LoginViewModel())
         }
         
         controller.onLogin = { [weak self] in
@@ -37,7 +37,7 @@ final class AuthCoordinator: BaseCoordinator {
         self.rootController = rootController
     }
     
-    private func showRegisterModule(viewModel: AuthViewModel) {
+    private func showRegisterModule(viewModel: LoginViewModel) {
         guard
             let controller = storyboard
                 .instantiateViewController(withIdentifier: "RegistrationVC")

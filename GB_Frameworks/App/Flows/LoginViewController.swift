@@ -18,7 +18,7 @@ final class LoginViewController: UIViewController {
     private lazy var alert = AlertsHelper(viewController: self)
     private lazy var keyboardHelper = KeyboardHelper(scrollView: scrollView)
     
-    var viewModel: AuthViewModel?
+    var viewModel: LoginViewModel?
     var onLogin: (() -> Void)?
     var onRegister: (() -> Void)?
     

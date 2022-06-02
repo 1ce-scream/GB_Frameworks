@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class LoginViewController: UIViewController {
 
@@ -14,6 +16,8 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registrationButton: UIButton!
+    
+    private let disposeBag = DisposeBag()
     
     private lazy var alert = AlertsHelper(viewController: self)
     private lazy var keyboardHelper = KeyboardHelper(scrollView: scrollView)
@@ -27,6 +31,7 @@ final class LoginViewController: UIViewController {
         
         keyboardHelper.hideKeyboardGesture()
         configureButtons()
+        configureLoginBindings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,30 +58,40 @@ final class LoginViewController: UIViewController {
                                      for: .touchUpInside)
     }
     
-    private func checkTextFields() -> Bool {
-        guard
-            let login = loginTextField.text,
-            let password = passwordTextField.text,
-            !login.isEmpty,
-            !password.isEmpty
-        else {
-            alert.showAlert(title: "Ошибка", message: "Необходимо заполнить все поля")
-            return false
-        }
-        return true
+    private func configureLoginBindings() {
+        Observable
+            .combineLatest(
+                loginTextField.rx.text,
+                passwordTextField.rx.text
+            )
+            .map { login, password in
+                return !(login ?? "").isEmpty && (password ?? "").count >= 4
+            }
+            .subscribe(
+                onNext: { [weak self] inputFilled in
+                    self?.loginButton?.isEnabled = inputFilled
+                },
+                onError: { error in
+                    print(error.localizedDescription)
+                },
+                onCompleted: {
+                    print("is completed")
+                },
+                onDisposed: {
+                    print("disposed")
+                }
+            )
+            .disposed(by: disposeBag)
     }
     
     @objc func tapLoginButton() {
-        
-        guard checkTextFields() else { return }
-        
         let checkResult = viewModel!.checkUserData(login: loginTextField.text ?? "",
-                                                  password: passwordTextField.text ?? "")
-        
+                                                   password: passwordTextField.text ?? "")
         if checkResult {
             UserDefaults.standard.set(true, forKey: "isLogin")
             onLogin?()
         } else {
+            passwordTextField.text = ""
             alert.showAlert(title: "Ошибка", message: "Пароль или логин не верны!")
         }
     }

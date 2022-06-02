@@ -8,6 +8,8 @@ target 'GB_Frameworks' do
   # Pods for GB_Frameworks
   pod 'GoogleMaps'
   pod 'RealmSwift', '10.26.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end
 
 post_install do |installer|

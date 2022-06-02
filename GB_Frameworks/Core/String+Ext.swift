@@ -10,7 +10,7 @@ import CryptoKit
 
 extension String {
     func SHA256Hash() -> String {
-        guard #available(iOS 13, *) else { return "unavailable OS version"}
+        guard #available(iOS 13, *) else { return "unavailable iOS version"}
         
         if let stringData = self.data(using: String.Encoding.utf8) {
             let hashedString = SHA256.hash(data: stringData)

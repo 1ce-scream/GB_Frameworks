@@ -146,7 +146,7 @@
 		FE2D3BF0283677EA00A3C737 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
-				FE2D3BF22836783000A3C737 /* Realm */,
+				FE2D3BF22836783000A3C737 /* Services */,
 				FE0A87D4283A3F27007E4F02 /* View Models */,
 			);
 			path = BusinessLogic;
@@ -162,12 +162,12 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		FE2D3BF22836783000A3C737 /* Realm */ = {
+		FE2D3BF22836783000A3C737 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				FE2D3BF528367C1B00A3C737 /* RealmService.swift */,
 			);
-			path = Realm;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FE2D3BF32836785300A3C737 /* Resources */ = {

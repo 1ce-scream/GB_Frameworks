@@ -31,10 +31,13 @@ final class AuthCoordinator: BaseCoordinator {
         }
         
         controller.viewModel = viewModel
+        controller.alertHelper = AlertsHelper(viewController: controller)
         
         let rootController = UINavigationController(rootViewController: controller)
+        
         setAsRoot(rootController)
         self.rootController = rootController
+        
     }
     
     private func showRegisterModule(viewModel: AuthViewModel) {
@@ -45,6 +48,7 @@ final class AuthCoordinator: BaseCoordinator {
         else { return }
         
         controller.viewModel = viewModel
+        controller.alertHelper = AlertsHelper(viewController: controller)
         
         controller.onLogin = { [weak self] in
             self?.backToLogin()

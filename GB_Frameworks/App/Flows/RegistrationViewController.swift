@@ -17,10 +17,10 @@ final class RegistrationViewController: UIViewController {
     @IBOutlet weak var registrationButton: UIButton!
     
     private let disposeBag = DisposeBag()
-    
-    private lazy var alert = AlertsHelper(viewController: self)
+
     private lazy var keyboardHelper = KeyboardHelper(scrollView: scrollView)
     
+    var alertHelper: AlertsHelper?
     var viewModel: AuthViewModel?
     var onLogin: (() -> Void)?
     
@@ -80,11 +80,11 @@ final class RegistrationViewController: UIViewController {
         }
 
         if isUserExist {
-            alert.showAlert(title: "Отлично",
+            alertHelper?.showAlert(title: "Отлично",
                             message: "Пароль был изменен!",
                             externalAction: action)
         } else {
-            alert.showAlert(title: "Отлично",
+            alertHelper?.showAlert(title: "Отлично",
                             message: "Успешная регистрация",
                             externalAction: action)
         }

@@ -16,6 +16,7 @@
 		FE4A36CF283D07E200602982 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4A36CE283D07E200602982 /* KeyboardHelper.swift */; };
 		FE7ADA9F2844C0230074D860 /* GoogleServiceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7ADA9E2844C0230074D860 /* GoogleServiceKey.swift */; };
 		FE7BC9662837CC2A002721A1 /* RealmTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7BC9652837CC2A002721A1 /* RealmTrack.swift */; };
+		FE8510F02848E4A30039E238 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8510EF2848E4A30039E238 /* LocationManager.swift */; };
 		FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A0283139F9002A57B2 /* AppDelegate.swift */; };
 		FE8876A3283139F9002A57B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A2283139F9002A57B2 /* SceneDelegate.swift */; };
 		FE8876A5283139F9002A57B2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8876A4283139F9002A57B2 /* MapViewController.swift */; };
@@ -44,6 +45,7 @@
 		FE4A36CE283D07E200602982 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		FE7ADA9E2844C0230074D860 /* GoogleServiceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleServiceKey.swift; sourceTree = "<group>"; };
 		FE7BC9652837CC2A002721A1 /* RealmTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTrack.swift; sourceTree = "<group>"; };
+		FE8510EF2848E4A30039E238 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FE88769D283139F9002A57B2 /* GB_Frameworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GB_Frameworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8876A0283139F9002A57B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8876A2283139F9002A57B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				FE2D3BF22836783000A3C737 /* Services */,
 				FE0A87D4283A3F27007E4F02 /* View Models */,
+				FE8510EF2848E4A30039E238 /* LocationManager.swift */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				FE7BC9662837CC2A002721A1 /* RealmTrack.swift in Sources */,
 				FE8876A5283139F9002A57B2 /* MapViewController.swift in Sources */,
 				FEC9DE93283BB44C003FB380 /* RealmUser.swift in Sources */,
+				FE8510F02848E4A30039E238 /* LocationManager.swift in Sources */,
 				FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */,
 				FE43D1DB28462F5D0057663C /* String+Ext.swift in Sources */,
 				FE8876A3283139F9002A57B2 /* SceneDelegate.swift in Sources */,

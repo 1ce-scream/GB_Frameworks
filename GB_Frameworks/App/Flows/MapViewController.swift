@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import CoreLocation
+import RxSwift
 import GoogleMaps
 
 final class MapViewController: UIViewController {
@@ -22,12 +22,15 @@ final class MapViewController: UIViewController {
     private let strokeWidth: CGFloat = 5
     private let myLocationButtonInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
     private let mapPadding: CGFloat = 30.0
-    private lazy var alertHelper = AlertsHelper(viewController: self)
-    private var locationManager: CLLocationManager?
+    
+    private let disposeBag = DisposeBag()
+    private let locationManager = LocationManager.instance
+
     private var manualMarker: GMSMarker?
     private var route: GMSPolyline?
     private var routePath: GMSMutablePath?
     
+    var alertHelper: AlertsHelper?
     var viewModel: MapViewModel?
     var onLogin: (() -> Void)?
     
@@ -48,13 +51,30 @@ final class MapViewController: UIViewController {
     }
     
     private func configureLocationManager() {
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.requestAlwaysAuthorization()
-        locationManager?.allowsBackgroundLocationUpdates = true
-        locationManager?.pausesLocationUpdatesAutomatically = false
-        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager?.startUpdatingLocation()
+        locationManager
+            .location
+            .asObservable()
+            .subscribe(
+                onNext: { [weak self] location in
+                    guard let location = location else { return }
+                    guard let self = self else { return }
+                    
+                    self.routePath?.add(location.coordinate)
+                    self.route?.path = self.routePath
+                    
+                    let position = GMSCameraPosition.camera(withTarget: location.coordinate,
+                                                            zoom: self.zoom)
+                    self.mapView.animate(to: position)
+                    
+                    self.viewModel?.saveCoordinates(coordinates: location.coordinate)
+                    guard self.viewModel?.trackState != .run else { return }
+                    self.locationManager.stopUpdatingLocation()
+                },
+                onError: { error in
+                    print(error.localizedDescription)
+                }
+            )
+            .disposed(by: disposeBag)
     }
     
     private func configureButtons() {
@@ -110,13 +130,13 @@ final class MapViewController: UIViewController {
     @objc func startTrack() {
         mapView.clear()
         configureRouteView(path: nil)
-        locationManager?.requestLocation()
-        locationManager?.startUpdatingLocation()
+        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
         viewModel?.startTrack()
     }
     
     @objc func stopTrack() {
-        locationManager?.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
         viewModel?.stopTrack()
         mapView.clear()
     }
@@ -131,11 +151,11 @@ final class MapViewController: UIViewController {
             viewModel?.trackState == .stop
         else {
             let action = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
-                self?.locationManager?.stopUpdatingLocation()
+                self?.locationManager.stopUpdatingLocation()
                 self?.viewModel?.stopTrack()
                 self?.mapView.clear()
             }
-            alertHelper.showAlert(title: "Внимание!",
+            alertHelper?.showAlert(title: "Внимание!",
                                   message: "Сначала необходимо остановить трэк",
                                   externalAction: action)
             return
@@ -171,26 +191,5 @@ extension MapViewController: GMSMapViewDelegate {
         } else {
             addMarker(coordinate: coordinate, color: .systemGreen)
         }
-    }
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        
-        routePath?.add(location.coordinate)
-        route?.path = routePath
-        
-        let position = GMSCameraPosition.camera(withTarget: location.coordinate,
-                                                zoom: zoom)
-        mapView.animate(to: position)
-        
-        viewModel?.saveCoordinates(coordinates: location.coordinate)
-        guard viewModel?.trackState != .run else { return }
-        locationManager?.stopUpdatingLocation()
-    }
-    
-    func locationManager(_: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
     }
 }

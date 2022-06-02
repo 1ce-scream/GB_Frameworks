@@ -19,9 +19,9 @@ final class LoginViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
-    private lazy var alert = AlertsHelper(viewController: self)
     private lazy var keyboardHelper = KeyboardHelper(scrollView: scrollView)
     
+    var alertHelper: AlertsHelper?
     var viewModel: AuthViewModel?
     var onLogin: (() -> Void)?
     var onRegister: (() -> Void)?
@@ -92,7 +92,7 @@ final class LoginViewController: UIViewController {
             onLogin?()
         } else {
             passwordTextField.text = ""
-            alert.showAlert(title: "Ошибка", message: "Пароль или логин не верны!")
+            alertHelper?.showAlert(title: "Ошибка", message: "Пароль или логин не верны!")
         }
     }
     

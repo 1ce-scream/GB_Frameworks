@@ -23,6 +23,7 @@ final class MainCoordinator: BaseCoordinator {
         else { return }
         
         controller.viewModel = viewModel
+        controller.alertHelper = AlertsHelper(viewController: controller)
         
         controller.onLogin = { [weak self] in
             self?.showAuthModule()

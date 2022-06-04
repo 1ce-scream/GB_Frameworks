@@ -30,9 +30,9 @@ final class MapViewController: UIViewController {
     private var route: GMSPolyline?
     private var routePath: GMSMutablePath?
     
-    var alertHelper: AlertsHelper?
+    private lazy var alertHelper = AlertsHelper(viewController: self)
+    
     var viewModel: MapViewModel?
-    var onLogin: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,7 +143,7 @@ final class MapViewController: UIViewController {
     
     @objc func tapLogoutButton() {
         UserDefaults.standard.set(false, forKey: "isLogin")
-        onLogin?()
+        viewModel?.onAuth()
     }
     
     @objc func showLastTrack() {
@@ -155,7 +155,7 @@ final class MapViewController: UIViewController {
                 self?.viewModel?.stopTrack()
                 self?.mapView.clear()
             }
-            alertHelper?.showAlert(title: "Внимание!",
+            alertHelper.showAlert(title: "Внимание!",
                                   message: "Сначала необходимо остановить трэк",
                                   externalAction: action)
             return

@@ -11,7 +11,14 @@ import RealmSwift
 
 final class MapViewModel {
     private var coordinates: [RealmTrack] = []
+    
+    weak var coordinator: MainCoordinator?
+    
     var trackState: TrackState = .stop
+    
+    func onAuth() {
+        coordinator?.showAuthModule()
+    }
     
     func startTrack() {
         guard trackState != .run else { return }

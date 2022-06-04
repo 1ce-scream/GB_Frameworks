@@ -8,7 +8,7 @@
 import UIKit
 
 final class AlertsHelper {
-    private var viewController: UIViewController?
+    private weak var viewController: UIViewController?
     
     func showAlert(title: String, message: String, externalAction: UIAlertAction? = nil) {
         let alert = UIAlertController(title: title,

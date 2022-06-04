@@ -12,31 +12,26 @@ final class MainCoordinator: BaseCoordinator {
     var onFinishFlow: (() -> Void)?
 
     override func start() {
-        showMapModule(viewModel: MapViewModel())
+        showMapModule()
     }
 
-    private func showMapModule(viewModel: MapViewModel) {
+    private func showMapModule() {
         guard
             let controller = storyboard
                 .instantiateViewController(withIdentifier: "MapVC")
                 as? MapViewController
         else { return }
         
+        let viewModel = MapViewModel()
+        viewModel.coordinator = self
         controller.viewModel = viewModel
-        controller.alertHelper = AlertsHelper(viewController: controller)
-        
-        controller.onLogin = { [weak self] in
-            self?.showAuthModule()
-            self?.onFinishFlow?()
-        }
 
         let rootController = UINavigationController(rootViewController: controller)
         setAsRoot(rootController)
         self.rootController = rootController
     }
 
-    private func showAuthModule() {
-        let coordinator = AuthCoordinator()
-        coordinator.start()
+    func showAuthModule() {
+        self.onFinishFlow?()
     }
 }

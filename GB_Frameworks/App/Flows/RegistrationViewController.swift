@@ -17,12 +17,11 @@ final class RegistrationViewController: UIViewController {
     @IBOutlet weak var registrationButton: UIButton!
     
     private let disposeBag = DisposeBag()
-
-    private lazy var keyboardHelper = KeyboardHelper(scrollView: scrollView)
     
-    var alertHelper: AlertsHelper?
+    private lazy var keyboardHelper = KeyboardHelper(scrollView: scrollView)
+    private lazy var alertHelper = AlertsHelper(viewController: self)
+    
     var viewModel: AuthViewModel?
-    var onLogin: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +68,7 @@ final class RegistrationViewController: UIViewController {
     
     @objc func tapRegButton() {
         let action = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
-            self?.onLogin?()
+            self?.viewModel?.back()
         }
         
         guard let isUserExist = viewModel?.registerUser(login: loginTextField.text ?? "",
@@ -80,13 +79,13 @@ final class RegistrationViewController: UIViewController {
         }
 
         if isUserExist {
-            alertHelper?.showAlert(title: "Отлично",
-                            message: "Пароль был изменен!",
-                            externalAction: action)
+            alertHelper.showAlert(title: "Отлично",
+                                  message: "Пароль был изменен!",
+                                  externalAction: action)
         } else {
-            alertHelper?.showAlert(title: "Отлично",
-                            message: "Успешная регистрация",
-                            externalAction: action)
+            alertHelper.showAlert(title: "Отлично",
+                                  message: "Успешная регистрация",
+                                  externalAction: action)
         }
     }
 }

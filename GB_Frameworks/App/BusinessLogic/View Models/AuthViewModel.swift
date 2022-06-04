@@ -9,6 +9,23 @@ import Foundation
 import RealmSwift
 
 final class AuthViewModel {
+    weak var coordinator: AuthCoordinator?
+    
+    func onLogin() {
+        coordinator?.showLoginModule()
+    }
+    
+    func onRegister() {
+        coordinator?.showRegisterModule()
+    }
+    
+    func onMain() {
+        coordinator?.showMainModule()
+    }
+    
+    func back() {
+        coordinator?.backToLogin()
+    }
     
     func checkUserData(login: String, password: String) -> Bool {
         let realmUser = try? RealmService.loadByKey(typeOf: RealmUser.self,

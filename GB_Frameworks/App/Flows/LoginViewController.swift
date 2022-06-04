@@ -20,11 +20,9 @@ final class LoginViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     private lazy var keyboardHelper = KeyboardHelper(scrollView: scrollView)
+    private lazy var alertHelper = AlertsHelper(viewController: self)
     
-    var alertHelper: AlertsHelper?
     var viewModel: AuthViewModel?
-    var onLogin: (() -> Void)?
-    var onRegister: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,18 +83,20 @@ final class LoginViewController: UIViewController {
     }
     
     @objc func tapLoginButton() {
-        let checkResult = viewModel!.checkUserData(login: loginTextField.text ?? "",
+        guard let checkResult = viewModel?.checkUserData(login: loginTextField.text ?? "",
                                                    password: passwordTextField.text ?? "")
+        else { return }
+        
         if checkResult {
             UserDefaults.standard.set(true, forKey: "isLogin")
-            onLogin?()
+            viewModel?.onMain()
         } else {
             passwordTextField.text = ""
-            alertHelper?.showAlert(title: "Ошибка", message: "Пароль или логин не верны!")
+            alertHelper.showAlert(title: "Ошибка", message: "Пароль или логин не верны!")
         }
     }
     
     @objc func tapRegButton() {
-        onRegister?()
+        viewModel?.onRegister()
     }
 }

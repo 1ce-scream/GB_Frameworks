@@ -12,26 +12,19 @@ final class AuthCoordinator: BaseCoordinator {
     var onFinishFlow: (() -> Void)?
     
     override func start() {
-        showLoginModule(viewModel: AuthViewModel())
+        showLoginModule()
     }
     
-    private func showLoginModule(viewModel: AuthViewModel) {
+    func showLoginModule() {
         guard
             let controller = storyboard
                 .instantiateViewController(withIdentifier: "LoginVC")
                 as? LoginViewController
         else { return }
         
-        controller.onRegister = { [weak self] in
-            self?.showRegisterModule(viewModel: AuthViewModel())
-        }
-        
-        controller.onLogin = { [weak self] in
-            self?.onFinishFlow?()
-        }
-        
+        let viewModel = AuthViewModel()
+        viewModel.coordinator = self
         controller.viewModel = viewModel
-        controller.alertHelper = AlertsHelper(viewController: controller)
         
         let rootController = UINavigationController(rootViewController: controller)
         
@@ -40,25 +33,25 @@ final class AuthCoordinator: BaseCoordinator {
         
     }
     
-    private func showRegisterModule(viewModel: AuthViewModel) {
+    func showRegisterModule() {
         guard
             let controller = storyboard
                 .instantiateViewController(withIdentifier: "RegistrationVC")
                 as? RegistrationViewController
         else { return }
         
+        lazy var viewModel = AuthViewModel()
+        viewModel.coordinator = self
         controller.viewModel = viewModel
-        controller.alertHelper = AlertsHelper(viewController: controller)
-        
-        controller.onLogin = { [weak self] in
-            self?.backToLogin()
-            self?.onFinishFlow?()
-        }
         
         rootController?.pushViewController(controller, animated: true)
     }
     
-    private func backToLogin() {
-        rootController?.popViewController(animated: true)
+    func showMainModule() {
+        self.onFinishFlow?()
+    }
+    
+    func backToLogin() {
+        self.rootController?.popViewController(animated: true)
     }
 }

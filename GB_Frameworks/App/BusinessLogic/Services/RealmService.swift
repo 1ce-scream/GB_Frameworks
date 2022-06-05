@@ -19,17 +19,16 @@ public extension Realm {
  }
 
 class RealmService {
+
+    static func defaultConfig() {
+        let defaultConfig = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+        Realm.Configuration.defaultConfiguration = defaultConfig
+    }
     
-    static let deleteIfMigration = Realm.Configuration(
-        deleteRealmIfMigrationNeeded: true)
-    
-    static func save<T:Object>(
-        items: [T],
-        configuration: Realm.Configuration = deleteIfMigration,
-        update: Realm.UpdatePolicy = .modified
-    ) throws {
-        let realm = try Realm(configuration: configuration)
-        print(configuration.fileURL ?? "")
+    static func save<T:Object>(items: [T],
+                               update: Realm.UpdatePolicy = .modified) throws {
+        let realm = try Realm()
+        print(realm.configuration.fileURL ?? "")
         try realm.safeWrite {
             realm.add(items, update: update)
         }

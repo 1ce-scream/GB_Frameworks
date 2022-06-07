@@ -62,6 +62,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
         sendIntervalNotification()
+        sendLocationNotification()
     }
 
     private func addBlurEffect() {
@@ -94,7 +95,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let trigger = manager.makeIntervalNotificatioTrigger(timeInterval: 10.0,
                                                              repeats: false)
         
-        manager.sendNotificationRequest(content: content, trigger: trigger, identifier: "Snooze")
+        manager.sendNotificationRequest(content: content, trigger: trigger, identifier: "Registration")
+    }
+    
+    private func sendLocationNotification() {
+        guard let manager = notificationManager else { return }
+        
+        let content = manager.makeNotificationContent(title: "Внимание",
+                                                      subtitle: "Внимание",
+                                                      body: "Вы покинули локацию",
+                                                      badge: 1)
+        let trigger = manager.makeLocationNotificationTrigger()
+        manager.sendNotificationRequest(content: content, trigger: trigger)
     }
     
 }

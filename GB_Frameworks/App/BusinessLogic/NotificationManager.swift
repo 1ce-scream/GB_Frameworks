@@ -13,7 +13,6 @@ class NotificationManager: NSObject {
     static let instance = NotificationManager()
     
     private let center = UNUserNotificationCenter.current()
-    private weak var locationManager = LocationManager.instance
     
     private override init() {
         super.init()
@@ -100,16 +99,15 @@ extension NotificationManager {
         return UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
     }
     
-    func makeLocationNotificationTrigger(notifyOnEntry: Bool) -> UNNotificationTrigger {
-        locationManager?.startUpdatingLocation()
-        locationManager?.requestLocation()
+    func makeLocationNotificationTrigger() -> UNNotificationTrigger {
         
         let coordinates = CLLocationCoordinate2D(latitude: 37.331854728712756,
                                                  longitude: -122.0302211884243)
         let region = CLCircularRegion(center: coordinates,
                                       radius: 20,
                                       identifier: UUID().uuidString)
-        region.notifyOnEntry = notifyOnEntry
+        region.notifyOnEntry = false
+        region.notifyOnExit = true
         
         return UNLocationNotificationTrigger(region: region, repeats: false)
     }

@@ -30,6 +30,11 @@ final class LoginViewController: UIViewController {
         keyboardHelper.hideKeyboardGesture()
         configureButtons()
         configureLoginBindings()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.showController(notification:)),
+                                               name: NSNotification.Name(rawValue: "Registration"),
+                                               object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +102,10 @@ final class LoginViewController: UIViewController {
     }
     
     @objc func tapRegButton() {
+        viewModel?.onRegister()
+    }
+    
+    @objc func showController(notification: Notification) {
         viewModel?.onRegister()
     }
 }

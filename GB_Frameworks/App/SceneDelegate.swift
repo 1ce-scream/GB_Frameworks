@@ -84,7 +84,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func sendIntervalNotification() {
-        let body = "Вы уже 10 секунд не пользовались этим замечательным приложением"
+        let body = "Пора зарегистрироваться в этом чудесном приложении"
         
         guard let manager = notificationManager else { return }
         let content = manager.makeNotificationContent(title: "Внимание",
@@ -94,7 +94,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let trigger = manager.makeIntervalNotificatioTrigger(timeInterval: 10.0,
                                                              repeats: false)
         
-        manager.sendNotificationRequest(content: content, trigger: trigger)
+        manager.sendNotificationRequest(content: content, trigger: trigger, identifier: "Snooze")
     }
     
 }

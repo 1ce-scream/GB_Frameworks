@@ -32,10 +32,11 @@ class NotificationManager: NSObject {
     }
     
     func sendNotificationRequest(content: UNNotificationContent,
-                                 trigger: UNNotificationTrigger) {
+                                 trigger: UNNotificationTrigger,
+                                 identifier: String = UUID().uuidString) {
         checkPermission()
         
-        let request = UNNotificationRequest(identifier: UUID().uuidString,
+        let request = UNNotificationRequest(identifier: identifier,
                                             content: content,
                                             trigger: trigger)
         self.center.add(request) { error in
@@ -118,16 +119,16 @@ extension NotificationManager {
 extension NotificationManager: UNUserNotificationCenterDelegate {
     private func configureManager() {
         center.delegate = self
-        let snoozeAction = UNNotificationAction(identifier: "Snooze",
-                                                title: "Snooze",
-                                                options: [],
-                                                icon: .init(systemImageName: "moon"))
+        let registrationAction = UNNotificationAction(identifier: "Registration",
+                                                title: "Registration",
+                                                options: [.foreground],
+                                                icon: .init(systemImageName: "star"))
         let deleteAction = UNNotificationAction(identifier: "Delete",
                                                 title: "Delete",
                                                 options: [.destructive])
         let userActions = "User Actions"
         let category = UNNotificationCategory(identifier: userActions,
-                                              actions: [snoozeAction, deleteAction],
+                                              actions: [registrationAction, deleteAction],
                                               intentIdentifiers: [],
                                               options: [])
         
@@ -141,9 +142,10 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         let userInfo = response.notification.request.content.userInfo
         
         switch response.actionIdentifier {
-        case "Snooze":
+        case "Registration":
             print(userInfo)
-            sendJokeNotification()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Registration"),
+                                            object: nil)
         case "Delete":
             clearNotificationBage()
         default:
@@ -151,17 +153,5 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         }
         
         completionHandler()
-    }
-}
-
-extension NotificationManager {
-    private func sendJokeNotification() {
-        let trigger = makeIntervalNotificatioTrigger(timeInterval: 10, repeats: false)
-        let content = makeNotificationContent(title: "Внимание!",
-                                              subtitle: "Спасибо за внимание!",
-                                              body: "Пора снова воспользоваться этим чудесным приложением",
-                                              badge: 1)
-        sendNotificationRequest(content: content,
-                                trigger: trigger)
     }
 }

@@ -11,7 +11,7 @@ import CoreLocation
 
 class NotificationManager: NSObject {
     static let instance = NotificationManager()
-
+    
     private let center = UNUserNotificationCenter.current()
     private weak var locationManager = LocationManager.instance
     
@@ -120,12 +120,13 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     private func configureManager() {
         center.delegate = self
         let registrationAction = UNNotificationAction(identifier: "Registration",
-                                                title: "Registration",
-                                                options: [.foreground],
-                                                icon: .init(systemImageName: "star"))
+                                                      title: "Registration",
+                                                      options: [.foreground],
+                                                      icon: .init(systemImageName: "person.badge.plus"))
         let deleteAction = UNNotificationAction(identifier: "Delete",
                                                 title: "Delete",
-                                                options: [.destructive])
+                                                options: [.destructive],
+                                                icon: .init(systemImageName: "trash"))
         let userActions = "User Actions"
         let category = UNNotificationCategory(identifier: userActions,
                                               actions: [registrationAction, deleteAction],

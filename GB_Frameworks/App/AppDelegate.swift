@@ -41,6 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        sendIntervalNotification()
+    }
 
     private func requestStandartAutorization() {
         notificationManager = NotificationManager.instance
@@ -50,6 +54,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func requestProvisionalAuthorization() {
         notificationManager = NotificationManager.instance
         notificationManager?.requestAutorization(options: [.alert, .sound, .badge, .provisional])
+    }
+    
+    private func sendIntervalNotification() {
+        let body = "Приложение закрыто уже 10 секунд, это надо исправить"
+        
+        guard let manager = notificationManager else { return }
+        let content = manager.makeNotificationContent(title: "Внимание",
+                                                      subtitle: "Внимание",
+                                                      body: body,
+                                                      badge: 1,
+                                                      actionsIdentifier: "")
+        let trigger = manager.makeIntervalNotificatioTrigger(timeInterval: 10.0,
+                                                             repeats: false)
+        
+        manager.sendNotificationRequest(content: content, trigger: trigger, identifier: "Registration")
     }
 }
 

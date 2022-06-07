@@ -47,7 +47,7 @@ class NotificationManager: NSObject {
     
     func makeNotificationContent(title: String, subtitle: String,
                                  body: String, badge: NSNumber,
-                                 categoryIdentifier: String = "User Actions") -> UNNotificationContent {
+                                 actionsIdentifier: String = "User Actions") -> UNNotificationContent {
         
         let content = UNMutableNotificationContent()
         
@@ -56,7 +56,7 @@ class NotificationManager: NSObject {
         content.body = body
         content.badge = badge
         content.sound = .default
-        content.categoryIdentifier = categoryIdentifier
+        content.categoryIdentifier = actionsIdentifier
         
         return content
     }

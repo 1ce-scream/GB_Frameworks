@@ -14,12 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var coordinator: ApplicationCoordinator?
+    var notificationManager: NotificationManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         GMSServices.provideAPIKey(GoogleServiceKeys.APIKeyForMaps)
         RealmService.defaultConfig()
+    
+//        requestStandartAutorization()
+        requestProvisionalAuthorization()
         
         return true
     }
@@ -38,6 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    private func requestStandartAutorization() {
+        notificationManager = NotificationManager.instance
+        notificationManager?.requestAutorization(options: [.alert, .sound, .badge])
+    }
+    
+    private func requestProvisionalAuthorization() {
+        notificationManager = NotificationManager.instance
+        notificationManager?.requestAutorization(options: [.alert, .sound, .badge, .provisional])
+    }
 }
 

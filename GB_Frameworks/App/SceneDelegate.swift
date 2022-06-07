@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var coordinator: ApplicationCoordinator?
+    var notificationManager: NotificationManager?
     
     let blurEffect = UIBlurEffect(style: .light)
     let blurViewTag: Int = 100
@@ -25,6 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         coordinator = ApplicationCoordinator()
         coordinator?.start()
+        
+        notificationManager = NotificationManager.instance
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -39,6 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         
         removeBlurEffect()
+        notificationManager?.clearNotificationBage()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -57,6 +61,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        sendIntervalNotification()
     }
 
     private func addBlurEffect() {
@@ -67,7 +72,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         blurView.frame = window.bounds
         blurView.tag = blurViewTag
         
-//        window.rootViewController?.view.insertSubview(blurView, at: 1)
         window.rootViewController?.view.addSubview(blurView)
     }
     
@@ -78,5 +82,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         blurView.removeFromSuperview()
     }
+    
+    private func sendIntervalNotification() {
+        let body = "Вы уже 10 секунд не пользовались этим замечательным приложением"
+        
+        guard let manager = notificationManager else { return }
+        let content = manager.makeNotificationContent(title: "Внимание",
+                                                      subtitle: "Внимание",
+                                                      body: body,
+                                                      badge: 1)
+        let trigger = manager.makeIntervalNotificatioTrigger(timeInterval: 10.0,
+                                                             repeats: false)
+        
+        manager.sendNotificationRequest(content: content, trigger: trigger)
+    }
+    
 }
 

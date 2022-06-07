@@ -46,7 +46,8 @@ class NotificationManager: NSObject {
     }
     
     func makeNotificationContent(title: String, subtitle: String,
-                                 body: String, badge: NSNumber) -> UNNotificationContent {
+                                 body: String, badge: NSNumber,
+                                 categoryIdentifier: String = "User Actions") -> UNNotificationContent {
         
         let content = UNMutableNotificationContent()
         
@@ -55,13 +56,18 @@ class NotificationManager: NSObject {
         content.body = body
         content.badge = badge
         content.sound = .default
-        content.categoryIdentifier = "User Actions"
+        content.categoryIdentifier = categoryIdentifier
         
         return content
     }
     
     func clearNotificationBage() {
         UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    
+    private func configureManager() {
+        center.delegate = self
+        registerDefualtActions()
     }
     
     private func checkPermission() {
@@ -113,10 +119,9 @@ extension NotificationManager {
     }
 }
 
-// MARK: - Actions
+// MARK: - Center delegate
 extension NotificationManager: UNUserNotificationCenterDelegate {
-    private func configureManager() {
-        center.delegate = self
+    private func registerDefualtActions() {
         let registrationAction = UNNotificationAction(identifier: "Registration",
                                                       title: "Registration",
                                                       options: [.foreground],

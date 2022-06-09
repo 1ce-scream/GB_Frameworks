@@ -24,19 +24,32 @@
                                 <rect key="frame" x="10" y="811" width="394" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCF-jS-2Jd">
-                                        <rect key="frame" x="0.0" y="0.0" width="126" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="92.5" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Start track" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Start track" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="14"/>
+                                        </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNR-Gc-Xsj">
-                                        <rect key="frame" x="134" y="0.0" width="126" height="31"/>
+                                        <rect key="frame" x="100.5" y="0.0" width="92.5" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Stop track" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Stop track" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="14"/>
+                                        </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ij-oT-2gP">
-                                        <rect key="frame" x="268" y="0.0" width="126" height="31"/>
+                                        <rect key="frame" x="201" y="0.0" width="92.5" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Last track" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Last track" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="14"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snm-XL-KTd">
+                                        <rect key="frame" x="301.5" y="0.0" width="92.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Take selfie" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="14"/>
+                                        </buttonConfiguration>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,6 +100,7 @@
                         <outlet property="logOutButton" destination="got-5W-CF4" id="hXa-to-wBy"/>
                         <outlet property="mapView" destination="1aD-Sc-ont" id="Trf-kk-akT"/>
                         <outlet property="removeMarkerButton" destination="5rp-TQ-FQp" id="WLP-ok-zVk"/>
+                        <outlet property="selfieButton" destination="snm-XL-KTd" id="wn3-BV-7XE"/>
                         <outlet property="startTrackButton" destination="bCF-jS-2Jd" id="naF-3B-KGc"/>
                         <outlet property="stopTrackButton" destination="dNR-Gc-Xsj" id="rt8-3J-hMQ"/>
                     </connections>
@@ -94,6 +108,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1031.8840579710145" y="123.88392857142857"/>
+        </scene>
+        <!--Photo-->
+        <scene sceneID="9Y5-5y-Loc">
+            <objects>
+                <viewController storyboardIdentifier="PhotoVC" title="Photo" id="Adz-lR-bcp" customClass="PhotoViewController" customModule="GB_Frameworks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lFV-dM-Gi4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="FlG-Ve-QFS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TMA-0z-NWX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="805"/>
+        </scene>
+        <!--Selfie-->
+        <scene sceneID="2bT-Iq-JLg">
+            <objects>
+                <viewController storyboardIdentifier="SelfieVC" title="Selfie" id="90w-L7-3mK" customClass="SelfieViewController" customModule="GB_Frameworks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nPy-GH-YFf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b2v-Ff-OVL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="7eY-wy-uw3">
+                                <rect key="frame" x="10" y="811" width="394" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZk-o4-fai">
+                                        <rect key="frame" x="0.0" y="0.0" width="177.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Save" cornerStyle="capsule"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXF-eI-oGX">
+                                        <rect key="frame" x="216.5" y="0.0" width="177.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Take photo" cornerStyle="capsule"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FiB-4l-iUr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b2v-Ff-OVL" firstAttribute="top" secondItem="FiB-4l-iUr" secondAttribute="top" id="E3b-be-ca0"/>
+                            <constraint firstItem="FiB-4l-iUr" firstAttribute="bottom" secondItem="b2v-Ff-OVL" secondAttribute="bottom" id="R5X-88-w8j"/>
+                            <constraint firstItem="FiB-4l-iUr" firstAttribute="trailing" secondItem="7eY-wy-uw3" secondAttribute="trailing" constant="10" id="UvS-te-PjG"/>
+                            <constraint firstItem="b2v-Ff-OVL" firstAttribute="leading" secondItem="FiB-4l-iUr" secondAttribute="leading" id="kd2-ba-3jX"/>
+                            <constraint firstItem="7eY-wy-uw3" firstAttribute="leading" secondItem="FiB-4l-iUr" secondAttribute="leading" constant="10" id="lEj-NV-ImU"/>
+                            <constraint firstItem="FiB-4l-iUr" firstAttribute="trailing" secondItem="b2v-Ff-OVL" secondAttribute="trailing" id="yyE-6X-BL6"/>
+                            <constraint firstItem="FiB-4l-iUr" firstAttribute="bottom" secondItem="7eY-wy-uw3" secondAttribute="bottom" constant="20" id="z97-cD-TOT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="savePhotoButton" destination="WZk-o4-fai" id="sS2-oh-k6e"/>
+                        <outlet property="selfieImageView" destination="b2v-Ff-OVL" id="oVz-8W-D8v"/>
+                        <outlet property="takePhotoButton" destination="lXF-eI-oGX" id="MKp-sL-YbV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0z-9q-kfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1031.8840579710145" y="804.91071428571422"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Eto-Sz-S3D">

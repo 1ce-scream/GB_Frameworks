@@ -6,6 +6,8 @@
 	<string>for example 2</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>for example</string>
+	<key>NSCameraUsageDescription</key>
+	<string>for selfie</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

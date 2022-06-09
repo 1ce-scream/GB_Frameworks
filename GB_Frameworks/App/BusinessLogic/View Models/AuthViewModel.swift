@@ -26,7 +26,10 @@ final class AuthViewModel {
     func back() {
         coordinator?.backToLogin()
     }
-    
+}
+
+// MARK: - Realm functions
+extension AuthViewModel {
     func checkUserData(login: String, password: String) -> Bool {
         let realmUser = try? RealmService.loadByKey(typeOf: RealmUser.self,
                                                     primaryKey: login)

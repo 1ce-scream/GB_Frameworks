@@ -22,10 +22,10 @@ class NotificationManager: NSObject {
     func requestAutorization(options: UNAuthorizationOptions) {
         center.requestAuthorization(options: options) { granted, error in
             if granted {
-                print("Разрешение получено")
+                print("Notification permission allowed")
             } else {
-                print("Разрешение не получено")
-                print(error?.localizedDescription ?? "Ошибок нет")
+                print("Notification permission denied")
+                print(error?.localizedDescription ?? "No errors")
             }
         }
     }
@@ -76,7 +76,7 @@ class NotificationManager: NSObject {
                 (settings.authorizationStatus == .authorized) ||
                     (settings.authorizationStatus == .provisional)
             else {
-                print("Нет разрешения на отправку уведомлений")
+                print("Notification permission denied")
                 return
             }
         }

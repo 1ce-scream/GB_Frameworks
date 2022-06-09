@@ -23,7 +23,8 @@ final class LoginViewController: UIViewController {
     private lazy var alertHelper = AlertsHelper(viewController: self)
     
     var viewModel: AuthViewModel?
-    
+
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,7 +49,8 @@ final class LoginViewController: UIViewController {
 
         keyboardHelper.removeKeyboardObserver()
     }
-    
+
+// MARK: - Configurations
     private func configureButtons() {
         loginButton.tintColor = .systemGreen
         loginButton.addTarget(self,
@@ -86,7 +88,8 @@ final class LoginViewController: UIViewController {
             )
             .disposed(by: disposeBag)
     }
-    
+
+//MARK: - Actions
     @objc func tapLoginButton() {
         guard let checkResult = viewModel?.checkUserData(login: loginTextField.text ?? "",
                                                    password: passwordTextField.text ?? "")

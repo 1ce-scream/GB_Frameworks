@@ -23,6 +23,9 @@
 		FE8876A8283139F9002A57B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8876A6283139F9002A57B2 /* Main.storyboard */; };
 		FE8876AA283139FA002A57B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE8876A9283139FA002A57B2 /* Assets.xcassets */; };
 		FE8876AD283139FA002A57B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8876AB283139FA002A57B2 /* LaunchScreen.storyboard */; };
+		FE89F3E82851FC7E00BB83A5 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE89F3E72851FC7E00BB83A5 /* PhotoViewController.swift */; };
+		FE89F3EA2851FDAF00BB83A5 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE89F3E92851FDAF00BB83A5 /* PhotoViewModel.swift */; };
+		FE89F3EC28520F9C00BB83A5 /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE89F3EB28520F9C00BB83A5 /* SelfieViewController.swift */; };
 		FE9816D3283E362F007292D1 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816D2283E362F007292D1 /* RegistrationViewController.swift */; };
 		FE9816D6283E3769007292D1 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816D5283E3769007292D1 /* BaseCoordinator.swift */; };
 		FE9816D8283E3B10007292D1 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816D7283E3B10007292D1 /* ApplicationCoordinator.swift */; };
@@ -55,6 +58,9 @@
 		FE8876A9283139FA002A57B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE8876AC283139FA002A57B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE8876AE283139FA002A57B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE89F3E72851FC7E00BB83A5 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		FE89F3E92851FDAF00BB83A5 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		FE89F3EB28520F9C00BB83A5 /* SelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
 		FE9816D2283E362F007292D1 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FE9816D5283E3769007292D1 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		FE9816D7283E3B10007292D1 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 			children = (
 				FE0A87D5283A3F54007E4F02 /* MapViewModel.swift */,
 				FEC9DE96283BC00C003FB380 /* AuthViewModel.swift */,
+				FE89F3E92851FDAF00BB83A5 /* PhotoViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -120,12 +127,12 @@
 		FE2D3BEC2836777800A3C737 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				FE9816D4283E3743007292D1 /* Coordinators */,
 				FE8876AB283139FA002A57B2 /* LaunchScreen.storyboard */,
 				FE8876A6283139F9002A57B2 /* Main.storyboard */,
-				FE8876A4283139F9002A57B2 /* MapViewController.swift */,
-				FEC9DE94283BB74F003FB380 /* LoginViewController.swift */,
-				FE9816D2283E362F007292D1 /* RegistrationViewController.swift */,
+				FE9816D4283E3743007292D1 /* Coordinators */,
+				FE89F3ED28520FB500BB83A5 /* Main */,
+				FE89F3EE28520FD100BB83A5 /* Photo */,
+				FE89F3EF28520FDE00BB83A5 /* Auth */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -219,6 +226,32 @@
 				FE2D3BF42836786C00A3C737 /* Environments */,
 			);
 			path = GB_Frameworks;
+			sourceTree = "<group>";
+		};
+		FE89F3ED28520FB500BB83A5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FE8876A4283139F9002A57B2 /* MapViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		FE89F3EE28520FD100BB83A5 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				FE89F3EB28520F9C00BB83A5 /* SelfieViewController.swift */,
+				FE89F3E72851FC7E00BB83A5 /* PhotoViewController.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		FE89F3EF28520FDE00BB83A5 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				FEC9DE94283BB74F003FB380 /* LoginViewController.swift */,
+				FE9816D2283E362F007292D1 /* RegistrationViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		FE9816D4283E3743007292D1 /* Coordinators */ = {
@@ -379,12 +412,14 @@
 				FE0A87D6283A3F54007E4F02 /* MapViewModel.swift in Sources */,
 				FE0A87D8283A48A7007E4F02 /* TrackState.swift in Sources */,
 				FEC9DE97283BC00C003FB380 /* AuthViewModel.swift in Sources */,
+				FE89F3EA2851FDAF00BB83A5 /* PhotoViewModel.swift in Sources */,
 				FE9816D3283E362F007292D1 /* RegistrationViewController.swift in Sources */,
 				FE9816D8283E3B10007292D1 /* ApplicationCoordinator.swift in Sources */,
 				FE9816DA283E3DE1007292D1 /* AuthCoordinator.swift in Sources */,
 				FE0A87D3283A3ECA007E4F02 /* AlertHelper.swift in Sources */,
 				FE7BC9662837CC2A002721A1 /* RealmTrack.swift in Sources */,
 				FE8876A5283139F9002A57B2 /* MapViewController.swift in Sources */,
+				FE89F3EC28520F9C00BB83A5 /* SelfieViewController.swift in Sources */,
 				FEC9DE93283BB44C003FB380 /* RealmUser.swift in Sources */,
 				FE8510F02848E4A30039E238 /* LocationManager.swift in Sources */,
 				FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */,
@@ -395,6 +430,7 @@
 				FEA432E9284E356C000466E8 /* NotificationManager.swift in Sources */,
 				FEC9DE95283BB74F003FB380 /* LoginViewController.swift in Sources */,
 				FE2D3BF628367C1B00A3C737 /* RealmService.swift in Sources */,
+				FE89F3E82851FC7E00BB83A5 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

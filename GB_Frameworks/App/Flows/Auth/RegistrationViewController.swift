@@ -22,7 +22,8 @@ final class RegistrationViewController: UIViewController {
     private lazy var alertHelper = AlertsHelper(viewController: self)
     
     var viewModel: AuthViewModel?
-    
+
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,7 +43,8 @@ final class RegistrationViewController: UIViewController {
 
         keyboardHelper.removeKeyboardObserver()
     }
-    
+
+// MARK: - Configurations
     private func configureButtons() {
         registrationButton.addTarget(self,
                                      action: #selector(tapRegButton),
@@ -65,7 +67,8 @@ final class RegistrationViewController: UIViewController {
             )
             .disposed(by: disposeBag)
     }
-    
+
+// MARK: - Actions
     @objc func tapRegButton() {
         let action = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
             self?.viewModel?.back()

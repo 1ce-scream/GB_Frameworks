@@ -14,6 +14,7 @@ final class KeyboardHelper {
         self.scrollView = scrollView
     }
     
+    // MARK: Should be used in viewWillAppear
     func addKeyboardObserver() {
         NotificationCenter.default.addObserver(
             self,
@@ -28,6 +29,7 @@ final class KeyboardHelper {
             object: nil)
     }
     
+    // MARK: Should be used in viewWillDisappear
     func removeKeyboardObserver() {
         NotificationCenter.default.removeObserver(
             self,
@@ -40,6 +42,7 @@ final class KeyboardHelper {
             object: nil)
     }
     
+    // MARK: Should be used in viewDidLoad
     func hideKeyboardGesture() {
         let hideKeyboardGesture = UITapGestureRecognizer(
             target: self,

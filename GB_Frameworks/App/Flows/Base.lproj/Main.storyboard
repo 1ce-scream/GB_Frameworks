@@ -100,7 +100,7 @@
                         <outlet property="logOutButton" destination="got-5W-CF4" id="hXa-to-wBy"/>
                         <outlet property="mapView" destination="1aD-Sc-ont" id="Trf-kk-akT"/>
                         <outlet property="removeMarkerButton" destination="5rp-TQ-FQp" id="WLP-ok-zVk"/>
-                        <outlet property="selfieButton" destination="snm-XL-KTd" id="wn3-BV-7XE"/>
+                        <outlet property="selfyButton" destination="snm-XL-KTd" id="wn3-BV-7XE"/>
                         <outlet property="startTrackButton" destination="bCF-jS-2Jd" id="naF-3B-KGc"/>
                         <outlet property="stopTrackButton" destination="dNR-Gc-Xsj" id="rt8-3J-hMQ"/>
                     </connections>
@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="122" y="805"/>
         </scene>
-        <!--Selfie-->
+        <!--Selfy-->
         <scene sceneID="2bT-Iq-JLg">
             <objects>
-                <viewController storyboardIdentifier="SelfieVC" title="Selfie" id="90w-L7-3mK" customClass="SelfieViewController" customModule="GB_Frameworks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelfyVC" title="Selfy" id="90w-L7-3mK" customClass="SelfyViewController" customModule="GB_Frameworks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nPy-GH-YFf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,7 +165,7 @@
                     </view>
                     <connections>
                         <outlet property="savePhotoButton" destination="WZk-o4-fai" id="sS2-oh-k6e"/>
-                        <outlet property="selfieImageView" destination="b2v-Ff-OVL" id="oVz-8W-D8v"/>
+                        <outlet property="selfyImageView" destination="b2v-Ff-OVL" id="oVz-8W-D8v"/>
                         <outlet property="takePhotoButton" destination="lXF-eI-oGX" id="MKp-sL-YbV"/>
                     </connections>
                 </viewController>

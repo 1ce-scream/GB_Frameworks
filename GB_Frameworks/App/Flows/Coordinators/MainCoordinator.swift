@@ -44,10 +44,10 @@ final class MainCoordinator: BaseCoordinator {
         rootController?.pushViewController(controller, animated: true)
     }
     
-    func showSelfieModule(photo: UIImage) {
+    func showSelfyModule(photo: UIImage) {
         guard
-            let controller = storyboard.instantiateViewController(withIdentifier: "SelfieVC")
-                as? SelfieViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: "SelfyVC")
+                as? SelfyViewController
         else { return }
         
         let viewModel = PhotoViewModel()

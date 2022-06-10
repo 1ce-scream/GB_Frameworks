@@ -17,7 +17,7 @@ final class MapViewController: UIViewController {
     @IBOutlet weak var removeMarkerButton: UIButton!
     @IBOutlet weak var lastTrackButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
-    @IBOutlet weak var selfieButton: UIButton!
+    @IBOutlet weak var selfyButton: UIButton!
     
 // MARK: - Properties
     private let zoom: Float = 17.0
@@ -45,7 +45,8 @@ final class MapViewController: UIViewController {
         configureLocationManager()
         configureButtons()
     }
-    
+
+// MARK: - View configurations
     private func configureButtons() {
         removeMarkerButton.addTarget(self,
                                      action: #selector(removeMarker),
@@ -70,10 +71,15 @@ final class MapViewController: UIViewController {
                                action: #selector(tapLogoutButton),
                                for: .touchUpInside)
         
-        selfieButton.addTarget(self,
-                               action: #selector(tapSelfieButton),
-                               for: .touchUpInside)
-        selfieButton.tintColor = .systemMint
+        // MARK: Comment to use UIImagePicker
+        selfyButton.addTarget(self,
+                              action: #selector(tapSelfyButton),
+                              for: .touchUpInside)
+        // MARK: Uncomment to use UIImagePicker
+//        selfyButton.addTarget(self,
+//                              action: #selector(showImagePicker),
+//                              for: .touchUpInside)
+        selfyButton.tintColor = .systemMint
     }
     
     private func configureRouteView(path: GMSMutablePath?) {
@@ -87,7 +93,8 @@ final class MapViewController: UIViewController {
         route?.strokeWidth = strokeWidth
         route?.map = mapView
     }
-    
+
+// MARK: - Private functions
     private func addMarker(coordinate: CLLocationCoordinate2D, color: UIColor) {
         let marker = GMSMarker(position: coordinate)
         marker.icon = GMSMarker.markerImage(with: color)
@@ -107,8 +114,8 @@ final class MapViewController: UIViewController {
     
     private func createTrackMarker(coordinate: CLLocationCoordinate2D) {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-//        let image = viewModel?.loadPhotoFromFiles()
-        let image = viewModel?.LoadPhotoFromUserDefaults()
+        let image = viewModel?.loadPhotoFromFiles()
+//        let image = viewModel?.LoadPhotoFromUserDefaults()
         view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = view.frame.size.width / 2
         view.clipsToBounds = true
@@ -154,8 +161,6 @@ extension MapViewController {
                     } else {
                         self.locationManager.stopUpdatingLocation()
                     }
-//                    guard self.viewModel?.trackState != .run else { return }
-//                    self.locationManager.stopUpdatingLocation()
                 },
                 onError: { error in
                     print(error.localizedDescription)
@@ -225,8 +230,21 @@ extension MapViewController {
         viewModel?.onAuth()
     }
     
-    @objc func tapSelfieButton() {
+    @objc func tapSelfyButton() {
         viewModel?.onPhoto()
+    }
+    
+    @objc func showImagePicker() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera)
+        else { return }
+        
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.sourceType = .camera
+        imagePickerController.allowsEditing = true
+        imagePickerController.delegate = self
+        
+        present(imagePickerController, animated: true)
     }
 }
 
@@ -239,6 +257,32 @@ extension MapViewController: GMSMapViewDelegate {
             manualMarker.position = coordinate
         } else {
             addMarker(coordinate: coordinate, color: .systemGreen)
+        }
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension MapViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true) { [weak self] in
+            guard let image = self?.extractImage(from: info) else { return }
+            self?.viewModel?.onSelfy(photo: image)
+        }
+    }
+    
+    private func extractImage(from info: [UIImagePickerController.InfoKey: Any]) -> UIImage? {
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            return image
+        } else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            return image
+        } else {
+            return nil
         }
     }
 }

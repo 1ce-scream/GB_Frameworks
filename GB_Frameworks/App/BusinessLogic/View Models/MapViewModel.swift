@@ -10,7 +10,7 @@ import CoreLocation
 import RealmSwift
 
 final class MapViewModel {
-    private let photoName = "Selfie"
+    private let photoName = "Selfy"
     private var coordinates: [RealmTrack] = []
     
     weak var coordinator: MainCoordinator?
@@ -23,6 +23,10 @@ final class MapViewModel {
     
     func onPhoto() {
         coordinator?.showPhotoModule()
+    }
+    
+    func onSelfy(photo: UIImage) {
+        coordinator?.showSelfyModule(photo: photo)
     }
 }
 

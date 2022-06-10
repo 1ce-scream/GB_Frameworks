@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class SelfieViewController: UIViewController {
+final class SelfyViewController: UIViewController {
 
-    @IBOutlet weak var selfieImageView: UIImageView!
+    @IBOutlet weak var selfyImageView: UIImageView!
     @IBOutlet weak var savePhotoButton: UIButton!
     @IBOutlet weak var takePhotoButton: UIButton!
     
@@ -24,11 +24,11 @@ final class SelfieViewController: UIViewController {
     }
     
     private func setupImageView() {
-        selfieImageView.contentMode = .scaleAspectFit
-        selfieImageView.layer.cornerRadius = 8
-        selfieImageView.clipsToBounds = true
-        selfieImageView.translatesAutoresizingMaskIntoConstraints = false
-        selfieImageView.image = photo
+        selfyImageView.contentMode = .scaleAspectFit
+        selfyImageView.layer.cornerRadius = 8
+        selfyImageView.clipsToBounds = true
+        selfyImageView.translatesAutoresizingMaskIntoConstraints = false
+        selfyImageView.image = photo
     }
     
     private func setupButtons() {

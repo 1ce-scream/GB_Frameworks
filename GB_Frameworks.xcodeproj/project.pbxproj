@@ -25,7 +25,7 @@
 		FE8876AD283139FA002A57B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE8876AB283139FA002A57B2 /* LaunchScreen.storyboard */; };
 		FE89F3E82851FC7E00BB83A5 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE89F3E72851FC7E00BB83A5 /* PhotoViewController.swift */; };
 		FE89F3EA2851FDAF00BB83A5 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE89F3E92851FDAF00BB83A5 /* PhotoViewModel.swift */; };
-		FE89F3EC28520F9C00BB83A5 /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE89F3EB28520F9C00BB83A5 /* SelfieViewController.swift */; };
+		FE89F3EC28520F9C00BB83A5 /* SelfyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE89F3EB28520F9C00BB83A5 /* SelfyViewController.swift */; };
 		FE9816D3283E362F007292D1 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816D2283E362F007292D1 /* RegistrationViewController.swift */; };
 		FE9816D6283E3769007292D1 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816D5283E3769007292D1 /* BaseCoordinator.swift */; };
 		FE9816D8283E3B10007292D1 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9816D7283E3B10007292D1 /* ApplicationCoordinator.swift */; };
@@ -60,7 +60,7 @@
 		FE8876AE283139FA002A57B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE89F3E72851FC7E00BB83A5 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		FE89F3E92851FDAF00BB83A5 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
-		FE89F3EB28520F9C00BB83A5 /* SelfieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
+		FE89F3EB28520F9C00BB83A5 /* SelfyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfyViewController.swift; sourceTree = "<group>"; };
 		FE9816D2283E362F007292D1 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FE9816D5283E3769007292D1 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		FE9816D7283E3B10007292D1 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 		FE89F3EE28520FD100BB83A5 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
-				FE89F3EB28520F9C00BB83A5 /* SelfieViewController.swift */,
+				FE89F3EB28520F9C00BB83A5 /* SelfyViewController.swift */,
 				FE89F3E72851FC7E00BB83A5 /* PhotoViewController.swift */,
 			);
 			path = Photo;
@@ -419,7 +419,7 @@
 				FE0A87D3283A3ECA007E4F02 /* AlertHelper.swift in Sources */,
 				FE7BC9662837CC2A002721A1 /* RealmTrack.swift in Sources */,
 				FE8876A5283139F9002A57B2 /* MapViewController.swift in Sources */,
-				FE89F3EC28520F9C00BB83A5 /* SelfieViewController.swift in Sources */,
+				FE89F3EC28520F9C00BB83A5 /* SelfyViewController.swift in Sources */,
 				FEC9DE93283BB44C003FB380 /* RealmUser.swift in Sources */,
 				FE8510F02848E4A30039E238 /* LocationManager.swift in Sources */,
 				FE8876A1283139F9002A57B2 /* AppDelegate.swift in Sources */,

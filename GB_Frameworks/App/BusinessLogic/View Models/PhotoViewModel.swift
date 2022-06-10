@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class PhotoViewModel {
-    private let photoName = "Selfie"
+    private let photoName = "Selfy"
     
     weak var coordinator: MainCoordinator?
     
@@ -21,12 +21,12 @@ final class PhotoViewModel {
         coordinator?.backToPhoto()
     }
     
-    func onSelfie(photo: UIImage) {
-        coordinator?.showSelfieModule(photo: photo)
+    func onSelfy(photo: UIImage) {
+        coordinator?.showSelfyModule(photo: photo)
     }
 }
 
-// MARK: - Photo functions
+// MARK: - Save photo functions
 extension PhotoViewModel {
     func savePhotoToUserDefaults(photo: UIImage) {
         guard

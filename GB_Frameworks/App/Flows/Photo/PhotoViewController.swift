@@ -191,7 +191,7 @@ extension PhotoViewController: AVCapturePhotoCaptureDelegate {
         let image = UIImage(cgImage: cgImage,
                             scale: 1.0,
                             orientation: deviceOrientationOnCapture.getUIImageOrientationFromDevice())
-        viewModel?.onSelfie(photo: image)
+        viewModel?.onSelfy(photo: image)
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput,
